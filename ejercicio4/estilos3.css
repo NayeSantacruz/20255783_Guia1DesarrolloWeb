@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Valley+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #593116;             
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, .titulo-seccion {
+    font-family: "Merriweather", serif;  
+}
+
+.seccion {
+    scroll-margin-top: 20px;
+}
+
+/* Encabezado */
+#encabezado {
+    background-color: #b26c38;   
+    border-bottom: 8px solid #eec67c;
+    color: rgb(255, 233, 183);
+    text-align: center;
+    padding: 20px 20px;
+}
+
+#encabezado h1::first-letter{
+    font-size: 1.5em;
+    color: rgb(255, 233, 183);;
+}
+
+#navegacion {
+  margin-top: 10px;
+}
+
+nav > a { 
+    color: #F1E9DC;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0 10px;
+    padding-bottom: 10px;
+    text-decoration: none; 
+}
+
+nav > a:hover {
+    text-decoration: underline; 
+}
+
+#titulo-programa {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Secciones generalidades */
+
+.seccion {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.seccion-clara{
+    background-color: white;
+}
+
+
+.seccion.seccion-oscura {
+    background-color: #fdf6e6;
+    max-width: 100%;      
+    margin: 30px 0;       
+    padding: 20px 0;      
+}
+
+.seccion-oscura .contenido {
+    max-width: 900px;     
+    margin: 0 auto;    
+    padding: 0 20px;
+}
+
+.titulo-seccion {
+    color: #593116;
+    text-align: center;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.parrafo {
+    text-align: justify;
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.imagen-principal {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Ficha tecnica */
+.tabla-info {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.tabla-info th, .tabla-info td {
+    border: 1.5px solid #eec67c;
+    padding: 9px 5px;
+    text-align: left;
+}
+
+.tabla-info th {
+    background-color: #eec67c;
+    color: #593116;
+    font-weight: bold;
+}
+
+.tabla-info a {
+    color: #b26c38;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* elenco y personajes */
+.personaje {
+    display: inline-block;
+    width: 250px;
+    vertical-align: top;
+    text-align: center;
+    margin: 15px;
+    padding: 15px;
+    background-color: #F1E9DC;
+    border-radius: 8px;
+}
+
+.imagen-personaje {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;        
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.actor {
+    color: #b26c38;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+.personajes {
+    font-size: 0.9em;
+    text-align: center;
+}
+
+#elenco .contenido {
+    text-align: center;
+}
+
+/* Temas principales */
+#temas-principal {
+    font-size: 1.05em;
+    color: #593116;
+    text-align: justify;
+}
+
+#temas-principal li span {
+    color: #b26c38;
+    font-weight: bold;
+}
+
+/* Trailer */
+.trailer {
+    display: block;
+    margin: 15px auto;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+}
+
+/* Pie de pagina */
+#pie-pagina {
+    background-color: #b26c38;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+.pie-texto {
+    font-size: 0.9em;
+    margin: 0;
+}
