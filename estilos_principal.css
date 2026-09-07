@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Valley+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --fawn: #E7AE75;
+    --wheat: #F6DFB3;
+    --misty-rose: #FAD6D3;
+    --salmon-pink: #F28AA1;
+    --bole: #83513E;
+    --granate: #6C0202;
+    --morado: #79597E;
+    --pomelo: #C45A30;
+    --naranja: #DB8925;
+    --mandarina: #E9BF8D;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffaf6;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenido {
+    flex: 1;
+}
+
+/* ================= ENCABEZADO ================= */
+.banner {
+    background-color: var(--granate);
+    color: var(--misty-rose);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.banner h1, h2 {
+    font-size: 2.2em;
+    margin-bottom: 8px;
+    font-family: "Merriweather", serif;
+}
+
+.subtitulo {
+    font-size: 1em;
+    color: var(--misty-rose);
+    font-family: "Merriweather", serif;
+}
+
+/* ================= CONTENIDO ================= */
+.contenido {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: var(--naranja);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: #4d3126;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--bole);
+}
+
+/* ================= PIE DE PÁGINA ================= */
+.pie {
+    background-color: var(--mandarina);
+    color: var(--granate);
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+}
