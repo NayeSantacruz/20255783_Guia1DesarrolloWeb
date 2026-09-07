@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Valley+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+    --fawn: #d0873e;
+    --wheat: #F6DFB3;
+    --misty-rose: #FAD6D3;
+    --salmon-pink: #e4627e;
+    --bole: #83513E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--bole);
+    background-color: #fffaf6;
+    line-height: 1.6;
+}
+
+/* ================= ENCABEZADO ================= */
+.banner {
+    background-color: var(--misty-rose);
+    color: var(--salmon-pink);
+    text-align: center;
+    padding: 40px 20px;
+    text-transform: uppercase;
+}
+
+.banner h1, h2 {
+    font-family: "Merriweather", serif;
+    font-size: 2.2em;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    font-size: 1em;
+    color: var(--salmon-pink);;
+}
+
+/* ================= CONTENIDO ================= */
+.contenido {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: var(--fawn);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: #4b291b;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--bole);
+}
+
+/* ================= TABLA DE ANÁLISIS ================= */
+/* Solo los encabezados y las líneas de las celdas llevan color;
+   el cuerpo de la tabla se queda en blanco, sin colorear cada celda */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid var(--fawn);
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+    font-size: 0.95em;
+}
+
+th {
+    background-color: var(--misty-rose);
+    color: var(--salmon-pink);
+}
+
+td {
+    background-color: #ffffff;
+}
+
+/* ================= VIDEO ================= */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ================= PIE DE PÁGINA ================= */
+.pie {
+    background-color: var(--wheat);
+    color: var(--bole);
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+}
