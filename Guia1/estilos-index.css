@@ -22,7 +22,7 @@ body {
     line-height: 1.6;
 }
 
-/* ================= ENCABEZADO ================= */
+/* encabezado */
 .banner {
     background-color: var(--misty-rose);
     color: var(--salmon-pink);
@@ -42,7 +42,7 @@ body {
     color: var(--salmon-pink);;
 }
 
-/* ================= CONTENIDO ================= */
+/* contenido */
 .contenido {
     max-width: 900px;
     margin: 0 auto;
@@ -78,9 +78,7 @@ a:hover {
     color: var(--bole);
 }
 
-/* ================= TABLA DE ANÁLISIS ================= */
-/* Solo los encabezados y las líneas de las celdas llevan color;
-   el cuerpo de la tabla se queda en blanco, sin colorear cada celda */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -104,7 +102,7 @@ td {
     background-color: #ffffff;
 }
 
-/* ================= VIDEO ================= */
+/* video  */
 .video-container {
     position: relative;
     width: 100%;
@@ -121,7 +119,7 @@ td {
     border: none;
 }
 
-/* ================= PIE DE PÁGINA ================= */
+/* Pie de pagina */
 .pie {
     background-color: var(--wheat);
     color: var(--bole);

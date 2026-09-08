@@ -32,7 +32,7 @@ body {
     flex: 1;
 }
 
-/* ================= ENCABEZADO ================= */
+/* encabezado */
 .banner {
     background-color: var(--granate);
     color: var(--misty-rose);
@@ -52,7 +52,7 @@ body {
     font-family: "Merriweather", serif;
 }
 
-/* ================= CONTENIDO ================= */
+/* contenido */
 .contenido {
     max-width: 900px;
     margin: 0 auto;
@@ -88,7 +88,7 @@ a:hover {
     color: var(--bole);
 }
 
-/* ================= PIE DE PÁGINA ================= */
+/* pie de pagina */
 .pie {
     background-color: var(--mandarina);
     color: var(--granate);
