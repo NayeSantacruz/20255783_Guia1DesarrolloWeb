@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi biografia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+        <header class="hero">
+        <div class="hero-contenido">
+            <span class="etiqueta">Biografía</span>
+            <h1>Nayeli Santacruz</h1>
+            <p class="tagline">Mis 20 años resumidos en una página web</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#familia">Familia</a>
+        <a href="#estudios">Estudios</a>
+        <a href="#ficha">Ficha</a>
+        <a href="#hobbies">Hobbies</a>
+    </nav>
+
+    <main class="wrapper">
+
+        <!-- Sobre mí: imagen a la izquierda, texto a la derecha -->
+        <section id="sobre-mi" class="bloque">
+            <h2>Sobre mí</h2>
+            <div class="sobremi-contenido">
+                <img src="img/nayeli.png" alt="Nayeli Santacruz">
+                <div class="sobremi-texto">
+                    <p>Nací en septiembre de 2006 en el Hospital Primero de Mayo, en El Salvador. 
+                    Soy la mayor de tres hermanas, un rol que me ha enseñado a ser empática y dedicada.</p>
+                    <p>Desde pequeña, siempre he tenido una fuerte inclinación hacia el arte y la 
+                    creatividad. Disfruto expresarme a través de la pintura, las manualidades y el 
+                    dibujo, actividades que alimentan mi atención al detalle y mi imaginación. En lo 
+                    personal, me considero una persona tranquila y observadora; aunque suelo ser 
+                    reservada al principio, a medida que me adapto y entro en confianza con las 
+                    personas, me resulta fácil conectar y desenvolverme con soltura.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Familia: texto arriba, imagen abajo (invertido respecto a Sobre mí) -->
+        <section id="familia" class="bloque bloque-full">
+        <div class="familia-interior">
+            <h2>Mi familia</h2>
+            <div class="familia-contenido">
+                <div class="familia-texto">
+                    <p>Toda mi familia es proveniente de un cantón de Ahuachapán. Mis padres 
+                    tomaron la decisión de emigrar a San Salvador en busca de nuevas oportunidades 
+                    profesionales y personales; mi papá es Ingeniero en Sistemas y mi mamá es 
+                    licenciada en Ciencias Jurídicas. A pesar de habernos establecido en la capital, 
+                    la conexión con nuestros orígenes sigue siendo firme, por lo que volvemos a 
+                    visitar Ahuachapán cada vez que tenemos la oportunidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Estudios: flexbox, 3 arriba y 3 abajo -->
+        <section id="estudios" class="bloque">
+            <h2>Estudios y formación</h2>
+            <div class="estudios-contenido">
+
+                <div class="estudio">
+                    <div class="estudio-encabezado">
+                        <img src="img/esen.png" alt="ESEN, Ingeniería de Software y Negocios Digitales" class="estudio-logo">
+                        <h3>Educación superior</h3>
+                    </div>
+                    <p>Curso el último ciclo de mi segundo año en la Escuela Superior de Economía 
+                    y Negocios (ESEN), en La Libertad, en la carrera de Ingeniería de Software y 
+                    Negocios Digitales.</p>
+                    <a href="https://www.esen.edu.sv/" target="_blank" class="enlace-institucion">Sitio web</a>
+                </div>
+
+                <div class="estudio">
+                    <div class="estudio-encabezado">
+                        <img src="img/externado.png" alt="Colegio Externado de San José" class="estudio-logo">
+                        <h3>Educación secundaria</h3>
+                    </div>
+                    <p>Me gradué de Bachiller General en el Colegio Externado de San José en 2024, 
+                    institución en la que estudié desde 2013.</p>
+                    <a href="https://www.externado.edu.sv/" target="_blank" class="enlace-institucion">Sitio web</a>
+                </div>
+
+                <div class="estudio">
+                    <div class="estudio-encabezado">
+                        <img src="img/pasitos.jpeg" alt="Kínder Pasitos" class="estudio-logo">
+                        <h3>Educación inicial</h3>
+                    </div>
+                    <p>Inicié mi formación en el Kínder Pasitos a los 4 años en 2011, graduándome 
+                    en 2012.</p>
+                </div>
+
+                <div class="estudio">
+                    <h3>Idiomas</h3>
+                    <p>He complementado mis estudios asistiendo a clases de inglés en el Instituto 
+                    Técnico Ricaldone y en la Escuela Americana.</p>
+                </div>
+
+                <div class="estudio">
+                    <h3>Deportes</h3>
+                    <p>Practiqué natación de forma continua desde 2013 hasta 2019, una disciplina 
+                    que he retomado recientemente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ficha resumen -->
+        <section id="ficha" class="bloque bloque-full-ficha">
+            <div class="ficha-interior">
+                <h2>Resumen datos</h2>
+                <dl class="ficha">
+                    <div><dt>Nacimiento</dt><dd>Septiembre 2006, San Salvador</dd></div>
+                    <div><dt>Nacionalidad</dt><dd>Salvadoreña</dd></div>
+                    <div><dt>edad</dt><dd>20 años</dd></div>
+                    <div><dt>Origen Familiar</dt><dd>Ahuachapán</dd></div>
+                    <div><dt>Universidad</dt><dd>ESEN, desde 2024</dd></div>
+                    <div><dt>Carrera</dt><dd>Ingeniería de Software y Negocios Digitales</dd></div>
+                    <div><dt>Colegio</dt><dd>Externado de San José, 2013–2024</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- Hobbies -->
+        <section id="hobbies" class="bloque bloque-completo">
+            <div class="hobbie-interior">
+                <h2>Hobbies</h2>
+                <div class="hobbies-contenido">
+
+                    <div class="hobby-card">
+                        <span class="hobby-numero">01</span>
+                        <h3>Leer</h3>
+                        <p>Es un hábito que me inculcó mi papá desde muy pequeña, ya que al terminar 
+                        las clases cada año solía comprarme un libro para leer durante las vacaciones.</p>
+                    </div>
+
+                    <div class="hobby-card">
+                        <span class="hobby-numero">02</span>
+                        <h3>Pintar</h3>
+                        <p>Comenzó como un pasatiempo durante la pandemia, momento en el que descubrí 
+                        el talento y la facilidad que tenía para esta forma de expresión artística.</p>
+                    </div>
+
+                    <div class="hobby-card">
+                        <span class="hobby-numero">03</span>
+                        <h3>Escuchar música</h3>
+                        <p>Disfruto de una gran diversidad de géneros, desde bachata, pop y rock en 
+                        español, hasta indie y salsa. Entre mis favoritos: Rauw Alejandro, LATIN MAFIA 
+                        y The Weeknd.</p>
+                    </div>
+
+                    <div class="hobby-card">
+                        <span class="hobby-numero">04</span>
+                        <h3>Manualidades</h3>
+                        <p>Desde que tengo uso de razón, siempre me ha encantado crear con mis propias 
+                        manos, especialmente detalles especiales para las personas que me importan.</p>
+                    </div>
+
+                    <div class="hobby-card">
+                        <span class="hobby-numero">05</span>
+                        <h3>Familia y amigos</h3>
+                        <p>Me apasiona compartir tiempo de calidad con mis seres queridos, crear 
+                        recuerdos significativos y explorar nuevos lugares.</p>
+                    </div>
+
+                    <div class="hobby-card">
+                        <span class="hobby-numero">06</span>
+                        <h3>Gastronomía</h3>
+                        <p>Disfruto mucho probar distintas propuestas gastronómicas, degustar nuevos 
+                        sabores y vivir experiencias a través de la comida.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Desarrollado por: Nayeli Aimy Santacruz Ayala. 2026
+    </footer>
+</body>
+</html>

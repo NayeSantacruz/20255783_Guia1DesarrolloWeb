@@ -1,0 +1,787 @@
+/* ==========================================================================
+   LA FONDA DE ALEGRÍA — HOJA DE ESTILOS COMPARTIDA
+   Sistema de diseño: "Busy Bee Honey" (Refero Design) adaptado
+   Materia: Desarrollo Web I
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES CSS (DESIGN TOKENS)
+   -------------------------------------------------------------------------- */
+:root {
+  /* --- Colores --- */
+  --color-dark-cocoa: #3b2722;
+  --color-cream-parchment: #f2ebd0;
+  --color-charcoal: #000000;
+  --color-honeycomb-gold: #ffca50;
+  --color-barn-red: #a0342a;
+  --color-cornflower-blue: #6aacc2;
+  --color-sage-green: #6fa162;
+
+  /* --- Tipografías (sustitutos gratuitos vía Google Fonts) --- */
+  --font-display: 'Playfair Display', 'Times New Roman', serif;      /* sustituye a TayMakawao */
+  --font-subhead: 'DM Serif Display', 'Times New Roman', serif;      /* sustituye a Barkman Honey */
+  --font-ui: 'Barlow Condensed', Arial, sans-serif;                  /* sustituye a TayBirdie / Arial */
+  --font-body: 'Times New Roman', Georgia, serif;
+  --font-mono: 'Courier New', monospace;                             /* sustituye a Anonymous Pro */
+
+  /* --- Escala tipográfica --- */
+  --text-caption: 12px;
+  --text-body: 16px;
+  --text-subheading: 20px;
+  --text-heading-sm: 24px;
+  --text-heading: 28px;
+  --text-heading-lg: 65px;
+  --text-display: 90px;
+  --text-display-lg: 135px;
+  --text-display-xl: 238px;
+
+  /* --- Espaciado (unidad base 8px) --- */
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-80: 80px;
+
+  /* --- Bordes ---
+     Decisión de forma: 0px para TARJETAS y SECCIONES (esquinas cuadradas,
+     look de "letrero pintado"); píldora completa para BOTONES/badges/inputs. */
+  --radius-cards: 0px;
+  --radius-sections: 0px;
+  --radius-pill: 1000px;
+  --radius-badge: 500px;
+
+  /* --- Otros --- */
+  --card-padding: 24px;
+  --element-gap: 8px;
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET BÁSICO
+   -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.2;
+  color: var(--color-dark-cocoa);
+  background-color: var(--color-cream-parchment);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Bloque de contenido: nunca se usa max-width con gutters laterales según
+   el sistema, pero para el TEXTO dentro de una sección sí limitamos el
+   ancho de lectura para que no se vea ilegible en pantallas anchas. */
+.content-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: var(--spacing-24);
+  padding-right: var(--spacing-24);
+}
+
+/* --------------------------------------------------------------------------
+   3. TIPOGRAFÍA GENERAL
+   -------------------------------------------------------------------------- */
+h1, h2, h3, .display, .display-lg, .subhead {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+  color: var(--color-cream-parchment);
+}
+
+.display-xl {
+  font-size: clamp(48px, 10vw, var(--text-display-xl));
+  line-height: 0.8;
+  letter-spacing: -2.38px;
+}
+
+.display-lg {
+  font-size: clamp(40px, 8vw, var(--text-display-lg));
+  line-height: 0.8;
+  letter-spacing: -1.35px;
+}
+
+.display {
+  font-size: clamp(32px, 6vw, var(--text-display));
+  line-height: 0.82;
+  letter-spacing: -0.9px;
+}
+
+.subhead {
+  font-family: var(--font-subhead);
+  font-weight: 400;
+  font-size: clamp(28px, 5vw, var(--text-heading-lg));
+  line-height: 1.0;
+  letter-spacing: normal;
+  color: var(--color-barn-red);
+}
+
+.subhead--on-light {
+  color: var(--color-dark-cocoa);
+}
+
+.heading-sm {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-heading-sm);
+  line-height: 1.1;
+  color: var(--color-dark-cocoa);
+}
+
+p, li, label, td, th {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.5;
+}
+
+.caption {
+  font-family: var(--font-ui);
+  font-size: var(--text-caption);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   4. NAVEGACIÓN PRINCIPAL
+   -------------------------------------------------------------------------- */
+.navbar {
+  background-color: var(--color-dark-cocoa);
+  padding: var(--spacing-16) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-24);
+}
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 26px;
+  color: var(--color-honeycomb-gold);
+  letter-spacing: -0.01em;
+}
+
+.navbar__logo span {
+  color: var(--color-cream-parchment);
+}
+
+.navbar__links {
+  display: flex;
+  gap: var(--spacing-32);
+}
+
+.navbar__links a {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-cream-parchment);
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  /* ANIMACIÓN 1 (transición): subrayado dorado en hover
+     Propiedad: border-color | Duración: 0.2s | Easing: ease */
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.navbar__links a:hover,
+.navbar__links a.is-active {
+  color: var(--color-honeycomb-gold);
+  border-bottom-color: var(--color-honeycomb-gold);
+}
+
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar__toggle span {
+  width: 26px;
+  height: 3px;
+  background-color: var(--color-cream-parchment);
+}
+
+/* --------------------------------------------------------------------------
+   5. BANDA MARQUEE (divisor de secciones animado)
+   -------------------------------------------------------------------------- */
+.marquee {
+  background-color: var(--color-cornflower-blue);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: var(--spacing-16) 0;
+  border-top: 4px solid var(--color-dark-cocoa);
+  border-bottom: 4px solid var(--color-dark-cocoa);
+}
+
+.marquee__track {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-48);
+  /* ANIMACIÓN 2 (@keyframes): desplazamiento horizontal infinito
+     Propiedad: transform | Duración: 22s | Easing: linear | Repetición: infinita
+     -> Este es el segundo requisito de "animación avanzada con @keyframes". */
+  animation: marquee-scroll 22s linear infinite;
+}
+
+.marquee__item {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 26px;
+  color: var(--color-dark-cocoa);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.marquee__bee {
+  font-size: 20px;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* --------------------------------------------------------------------------
+   6. SECCIONES FULL-BLEED
+   -------------------------------------------------------------------------- */
+.section {
+  width: 100%;
+  border-radius: var(--radius-sections);
+  padding: var(--spacing-80) 0;
+}
+
+.section--cocoa {
+  background-color: var(--color-dark-cocoa);
+  color: var(--color-cream-parchment);
+}
+
+.section--gold {
+  background-color: var(--color-honeycomb-gold);
+  color: var(--color-dark-cocoa);
+}
+
+.section--gold .heading-sm,
+.section--gold p {
+  color: var(--color-dark-cocoa);
+}
+
+.section--cream {
+  background-color: var(--color-cream-parchment);
+  color: var(--color-dark-cocoa);
+}
+
+.section--blue {
+  background-color: var(--color-cornflower-blue);
+  color: var(--color-dark-cocoa);
+}
+
+.section--tight {
+  padding: var(--spacing-48) 0;
+}
+
+/* Animación de entrada — fade-in al cargar la página
+   Propiedad: opacity, transform | Duración: 0.9s | Easing: ease-out
+   (ANIMACIÓN adicional solicitada: "fade-in al cargar") */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fade-in-up 0.9s ease-out both;
+}
+
+.fade-in--delay-1 { animation-delay: 0.15s; }
+.fade-in--delay-2 { animation-delay: 0.3s; }
+.fade-in--delay-3 { animation-delay: 0.45s; }
+
+/* --------------------------------------------------------------------------
+   7. HERO
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--color-dark-cocoa);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(59,39,34,0.55) 0%, rgba(59,39,34,0.85) 100%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 var(--spacing-24);
+}
+
+.hero__eyebrow {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-honeycomb-gold);
+  margin-bottom: var(--spacing-16);
+}
+
+.hero__title {
+  color: var(--color-cream-parchment);
+  margin-bottom: var(--spacing-24);
+}
+
+.hero__subtitle {
+  font-family: var(--font-body);
+  font-size: 19px;
+  color: var(--color-cream-parchment);
+  max-width: 640px;
+  margin: 0 auto var(--spacing-32);
+}
+
+.hero--sm {
+  min-height: 46vh;
+}
+
+/* --------------------------------------------------------------------------
+   8. BOTONES (PÍLDORA)
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+  cursor: pointer;
+  /* ANIMACIÓN 3 (transición de botones): escala + color en hover
+     Propiedad: transform, background-color | Duración: 0.25s | Easing: ease */
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.btn--gold {
+  background-color: var(--color-honeycomb-gold);
+  color: var(--color-dark-cocoa);
+}
+
+.btn--gold:hover {
+  background-color: #ffd873;
+}
+
+.btn--dark {
+  background-color: var(--color-dark-cocoa);
+  color: var(--color-cream-parchment);
+}
+
+.btn--dark:hover {
+  background-color: #4d332c;
+}
+
+.btn--outline {
+  background-color: transparent;
+  border-color: var(--color-dark-cocoa);
+  color: var(--color-dark-cocoa);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-dark-cocoa);
+  color: var(--color-cream-parchment);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-16);
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   9. TARJETAS
+   -------------------------------------------------------------------------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-32);
+}
+
+.card {
+  background-color: var(--color-cream-parchment);
+  border: 3px solid var(--color-dark-cocoa);
+  border-radius: var(--radius-cards);
+  padding: var(--card-padding);
+  color: var(--color-dark-cocoa);
+  /* ANIMACIÓN (transición de tarjeta): desplazamiento sutil en hover
+     Propiedad: transform, border-color | Duración: 0.3s | Easing: ease */
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-barn-red);
+}
+
+.card__badge {
+  display: inline-block;
+  background-color: var(--color-cornflower-blue);
+  color: var(--color-dark-cocoa);
+  font-family: var(--font-ui);
+  font-size: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  border-radius: var(--radius-badge);
+  margin-bottom: var(--spacing-16);
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: var(--spacing-8);
+  color: var(--color-dark-cocoa);
+}
+
+.card__text {
+  font-size: 15px;
+  color: var(--color-dark-cocoa);
+}
+
+/* Tarjetas con imagen (galería Quiénes Somos) */
+.photo-card {
+  background-color: var(--color-cream-parchment);
+  border: 3px solid var(--color-dark-cocoa);
+  overflow: hidden;
+}
+
+.photo-card__img-wrap {
+  overflow: hidden;
+  height: 260px;
+}
+
+.photo-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* ANIMACIÓN (zoom en hover sobre imágenes del menú/galería)
+     Propiedad: transform | Duración: 0.5s | Easing: ease */
+  transition: transform 0.5s ease;
+}
+
+.photo-card:hover .photo-card__img-wrap img {
+  transform: scale(1.08);
+}
+
+.photo-card__body {
+  padding: var(--spacing-24);
+}
+
+/* --------------------------------------------------------------------------
+   10. BADGE / SELLO CIRCULAR
+   -------------------------------------------------------------------------- */
+.trace-seal {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background-color: var(--color-cornflower-blue);
+  color: var(--color-dark-cocoa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 3px solid var(--color-dark-cocoa);
+  margin-bottom: var(--spacing-16);
+}
+
+/* --------------------------------------------------------------------------
+   11. FORMULARIO DE RESERVA (contacto.html)
+   -------------------------------------------------------------------------- */
+.form-card {
+  background-color: var(--color-cream-parchment);
+  border: 3px solid var(--color-dark-cocoa);
+  padding: var(--spacing-40);
+  color: var(--color-dark-cocoa);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-24);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: var(--spacing-24);
+}
+
+.form-group--full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 14px 20px;
+  border: 2px solid var(--color-dark-cocoa);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-cream-parchment);
+  color: var(--color-dark-cocoa);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-group textarea {
+  border-radius: 24px;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-barn-red);
+  box-shadow: 0 0 0 3px rgba(160, 52, 42, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   12. INFO DE CONTACTO / MAPA
+   -------------------------------------------------------------------------- */
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.info-item {
+  display: flex;
+  gap: var(--spacing-16);
+  align-items: flex-start;
+}
+
+.info-item__icon {
+  font-size: 22px;
+}
+
+.info-item__label {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--color-barn-red);
+  margin-bottom: 4px;
+}
+
+.map-frame {
+  border: 3px solid var(--color-dark-cocoa);
+  width: 100%;
+  height: 320px;
+}
+
+.map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   13. LAYOUT DE DOS COLUMNAS
+   -------------------------------------------------------------------------- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-48);
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   14. FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-dark-cocoa);
+  color: var(--color-cream-parchment);
+  padding: var(--spacing-48) 0 var(--spacing-24);
+}
+
+.site-footer__top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-32);
+  margin-bottom: var(--spacing-32);
+}
+
+.site-footer__brand {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--color-honeycomb-gold);
+  margin-bottom: var(--spacing-8);
+}
+
+.site-footer__col h4 {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-honeycomb-gold);
+  margin-bottom: var(--spacing-16);
+}
+
+.site-footer__col a,
+.site-footer__col p {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--color-cream-parchment);
+  display: block;
+  margin-bottom: 8px;
+  transition: color var(--transition-fast);
+}
+
+.site-footer__col a:hover {
+  color: var(--color-honeycomb-gold);
+}
+
+.site-footer__bottom {
+  border-top: 1px solid rgba(242,235,208,0.2);
+  padding-top: var(--spacing-16);
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: rgba(242,235,208,0.7);
+}
+
+.gold-strip {
+  height: 8px;
+  width: 100%;
+  background-color: var(--color-honeycomb-gold);
+}
+
+/* --------------------------------------------------------------------------
+   15. RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar__links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-dark-cocoa);
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-24) 0;
+    gap: var(--spacing-24);
+    display: none;
+  }
+
+  .navbar__links.is-open {
+    display: flex;
+  }
+
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .site-footer__top {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 70vh;
+  }
+
+  .section {
+    padding: var(--spacing-48) 0;
+  }
+}

@@ -1,0 +1,508 @@
+/* ===== Variables ===== */
+:root {
+    --color-fondo: #ebe4d8;
+    --color-rosa: #d299bc;
+    --color-rosa-claro: #e4bbd4;
+    --color-azul: #093261;
+    --color-burgundy: #6f0647;
+    --color-superficie: #98b2cf;
+    --color-superficie-fuerte: #698bb1;
+    --color-superficie-alt: #141d28;
+    --color-dorado: #d1a954;
+    --color-texto: #f2f0ea;
+    --color-texto-tenue: #2a313b;
+
+    --fuente-titulos: "Changa One", Georgia, "Times New Roman", serif;
+    --fuente-texto: "Montserrat", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 20px;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-texto);
+}
+
+/* ===== Layout general ===== */
+.wrapper {
+    margin: 0 auto;
+    width: 86%;
+    max-width: 860px;
+}
+
+/* ===== Hero (portada) ===== */
+.hero {
+    background-image:
+        linear-gradient(180deg, rgba(77, 58, 43, 0.35), rgba(67, 30, 46, 0.95)),
+        url("../img/hero.png");
+    background-size: cover;
+    background-position: center;
+    padding: 120px 20px 70px;
+}
+
+.hero-contenido {
+    margin: 0 auto;
+    width: 86%;
+    max-width: 860px;
+    text-align: center;
+}
+
+.etiqueta {
+    display: inline-block;
+    color: var(--color-dorado);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--color-dorado);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 3.6rem;
+    letter-spacing: 3px;
+    line-height: 1.05;
+    margin: 0;
+}
+
+.tagline {
+    font-family: var(--fuente-texto);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--color-rosa);
+    margin-bottom: 0;
+}
+
+/* ===== Navegación ===== */
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-superficie);
+    border-bottom: 2px solid var(--color-azul);
+}
+
+nav > a {
+    color: var(--color-azul);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    padding: 18px 22px;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover {
+    color: var(--color-burgundy);
+    border-bottom-color: var(--color-burgundy);
+}
+
+nav a:active {
+    color: var(--color-texto);
+}
+
+/* ===== Bloques de contenido (general) ===== */
+.bloque { padding-top: 60px; }
+
+h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.4rem;
+    color: var(--color-dorado);
+    padding-bottom: 14px;
+    margin-bottom: 26px;
+}
+
+.bloque p {
+    color: var(--color-texto-tenue);
+    line-height: 1.75;
+    font-size: 0.95rem;
+    text-align: justify;
+}
+
+/* ===== Sobre mí: imagen izquierda, texto derecha ===== */
+.sobremi-contenido {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin-bottom: 100px;
+}
+
+.sobremi-contenido img {
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 18px 35px rgba(220, 133, 166, 0.855);
+}
+
+.sobremi-texto {
+    flex: 1;
+}
+
+/* Primera letra y primera línea del primer párrafo de Sobre mí */
+.sobremi-texto p:first-child::first-letter {
+    color: var(--color-burgundy);
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.sobremi-texto p:first-child::first-line {
+    text-decoration: underline var(--color-rosa);
+}
+
+/* ===== Familia: texto arriba, imagen abajo ===== */
+.bloque-full {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background-color: var(--color-rosa-claro);
+    padding-top: 56px;
+    padding-bottom: 56px;
+}
+
+.familia-interior {
+    margin: 0 auto;
+    width: 86%;
+    max-width: 860px;
+    text-align: center;
+}
+
+.familia-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.familia-interior h2 {
+    display: inline-block;
+    color: var(--color-superficie-fuerte);
+    font-size: 1.3rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border: 2.5px solid var(--color-superficie-fuerte);
+    border-radius: 30px;
+    padding: 10px 32px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.familia-texto p {
+    color: var(--color-texto-tenue);
+    line-height: 1.75;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+
+
+/* ===== Estudios: flexbox, 3 arriba y 3 abajo ===== */
+/* ===== Estudios: 3 arriba, 2 abajo, mismo tamaño ===== */
+.estudios-contenido {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 24px;
+}
+
+.estudio {
+    flex: 1 1 calc(33.333% - 16px);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-borde);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: left;
+}
+
+.estudio:nth-child(1) { 
+    background-color: var(--color-superficie); 
+    --color-titulo: var(--color-azul);
+    --color-parrafo: var(--color-superficie-alt);
+}
+.estudio:nth-child(2) { 
+    background-color: var(--color-burgundy);
+    --color-titulo: var(--color-rosa-claro);
+    --color-parrafo: #fee7f5;
+}
+.estudio:nth-child(3) { 
+    background-color: var(--color-dorado); 
+    --color-titulo: var(--color-texto);
+    --color-parrafo: var(--color-superficie-alt);
+}
+.estudio:nth-child(4) { 
+    background-color: var(--color-rosa); 
+    --color-titulo: var(--color-burgundy);
+    --color-parrafo: var(--color-superficie-alt);
+}
+.estudio:nth-child(5) { 
+    background-color: var(--color-superficie-fuerte); 
+    --color-titulo: #b3cfee;
+    --color-parrafo: var(--color-superficie-alt);
+}
+
+/* Logo pequeño y cuadrado, en vez de imagen grande */
+.estudio-encabezado {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.estudio-logo {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 3px;
+    box-shadow: 0 0px 35px rgba(255, 255, 255, 0.5);
+}
+
+.estudio h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-titulo);
+    font-size: 1.05rem;
+    margin: 0px;
+}
+
+.estudio p {
+    color: var(--color-parrafo);
+    line-height: 1.6;
+    font-size: 0.85rem;
+    text-align: justify;
+    margin: 0;
+}
+
+.estudio .enlace-institucion {
+    margin-top: auto;
+}
+
+a[href^="https://www.esen.edu.sv"],
+a[href^="https://www.externado.edu.sv"] {
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.enlace-institucion {
+    display: inline-flex;
+    width: fit-content;
+    margin: 16px auto 0;
+    font-size: 0.8rem;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1.8px solid var(--color-titulo);
+    border-radius: 20px;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.enlace-institucion:link {
+    color: var(--color-titulo);
+}
+
+.enlace-institucion:visited {
+    color: var(--color-texto);
+}
+
+.enlace-institucion:hover {
+    color: #ab8430;
+    text-decoration: underline;
+}
+
+
+/* ===== Ficha resumen ===== */
+
+.ficha{
+    margin-bottom: 100px;
+}
+
+.bloque-full-ficha{
+    width: calc(100vw - 10vw);
+    margin-left: calc(-50vw + 50% + 5vw);
+    padding: 56px 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    background-image: 
+        linear-gradient(0deg, rgba(43, 57, 77, 0), rgba(93, 134, 200, 0.71)),
+        url("../img/fondo.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+
+#ficha h2 {
+    color: #093261;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 400;
+
+}
+
+.ficha-interior {
+    margin: 0 auto;
+    width: 75%;
+    max-width: 860px;
+    text-align: center;
+}
+
+.ficha > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-texto);
+}
+
+.ficha > div:nth-child(odd) {
+    background-color: var(--color-fondo);
+}
+
+.ficha > div:nth-child(even) {
+    background-color: var(--color-superficie);
+}
+
+.ficha > div:first-child {
+    border-top: 3px solid var(--color-superficie-fuerte);
+}
+
+.ficha dt {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.ficha dd {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.ficha > div:nth-child(odd) dt {
+    color: var(--color-superficie-alt);
+}
+
+.ficha > div:nth-child(odd) dd {
+    color: var(--color-superficie-alt);
+}
+
+.ficha > div:nth-child(even) dt {
+    color: #4c6c91;
+}
+
+.ficha > div:nth-child(even) dd {
+    color: #4c6c91;
+}
+
+dt + dd {
+    margin-left: 12px;
+}
+
+/* ===== Hobbies y deportes ===== */
+.bloque-completo{
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding-top: 56px;
+    padding-bottom: 56px;
+    background-image:
+        linear-gradient(180deg, rgba(77, 58, 43, 0.35), rgba(67, 30, 46, 0.95)),
+        url("../img/hero.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.hobbie-interior {
+    margin: 0 auto;
+    width: 86%;
+    max-width: 860px;
+    text-align: center;
+}
+
+#hobbies h2 {
+    display: inline-block;
+    color: var(--color-texto);
+    font-size: 1.6rem;
+    letter-spacing: 2.5px;
+    border: 2px solid var(--color-texto);
+    border-radius: 30px;
+    padding: 10px 32px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.hobbies-contenido {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.hobby-card {
+    flex: 1 1 calc(33.333% - 16px);
+    border-radius: 14px;
+    padding: 28px 24px;
+}
+
+.hobby-card:nth-child(1), .hobby-card:nth-child(5) { 
+    background-color: var(--color-rosa-claro); 
+    --color-titulo-card: #ad2579;
+    --color-parrafo-card: var(--color-superficie-alt);
+    --color-numero: var(--color-burgundy);
+}
+.hobby-card:nth-child(2), .hobby-card:nth-child(6){ 
+    background-color: var(--color-burgundy);
+    --color-titulo-card: #d186b4;
+    --color-parrafo-card: #fff3fa;
+    --color-numero: var(--color-texto);
+}
+.hobby-card:nth-child(3) , .hobby-card:nth-child(4) { 
+    background-color: #d186b4; 
+    --color-titulo-card: var(--color-texto);
+    --color-parrafo-card: var(--color-superficie-alt);
+    --color-numero: var(--color-burgundy);
+}
+
+.hobby-numero {
+    display: block;
+    color: var(--color-numero);
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.hobby-card h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-titulo-card);
+    font-size: 1.3rem;
+    margin: 0 0 14px;
+}
+
+.hobby-card p {
+    color: var(--color-parrafo-card);
+    line-height: 1.6;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* ===== Pie de página ===== */
+footer {
+    background-color: var(--color-superficie);
+    color: var(--color-azul);
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    margin-top: 60px;
+    padding: 24px;
+    text-align: center;
+    border-top: 2px solid var(--color-azul);
+}
