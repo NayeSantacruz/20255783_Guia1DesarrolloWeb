@@ -258,8 +258,7 @@ p, li, label, td, th {
   align-items: center;
   gap: var(--spacing-48);
   /* ANIMACIÓN 2 (@keyframes): desplazamiento horizontal infinito
-     Propiedad: transform | Duración: 22s | Easing: linear | Repetición: infinita
-     -> Este es el segundo requisito de "animación avanzada con @keyframes". */
+     Propiedad: transform | Duración: 22s | Easing: linear | Repetición: infinita */
   animation: marquee-scroll 22s linear infinite;
 }
 
