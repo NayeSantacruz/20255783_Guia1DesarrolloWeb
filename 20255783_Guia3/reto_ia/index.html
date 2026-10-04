@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es-SV">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>La Fonda de Alegría | Inicio</title>
+
+  <meta
+    name="description"
+    content="Restaurante La Fonda de Alegría donde en un clima agradable encontrará los más apetecibles platos de la zona con la atención que todo cliente se merece."
+  >
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Serif+Display&family=Barlow+Condensed:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- ÚNICA hoja de estilos utilizada por esta página -->
+  <link rel="stylesheet" href="css/inicio.css">
+</head>
+
+<body>
+
+  <!-- =========================================================
+       CONTENEDOR GRID PRINCIPAL DE TODA LA PÁGINA
+       grid-template-areas:
+       header → navegación
+       main   → contenido
+       footer → pie de página
+       strip  → franja dorada final
+       ========================================================= -->
+  <div class="page-grid">
+
+    <!-- =======================================================
+         GRID ITEM: HEADER
+         ======================================================= -->
+    <header class="site-header">
+
+      <nav class="navbar">
+        <div class="navbar__inner">
+
+          <a href="index.html" class="navbar__logo">
+            Fonda <span>de Alegría</span>
+          </a>
+
+          <!-- Botón para menú móvil -->
+          <button
+            class="navbar__toggle"
+            id="navToggle"
+            aria-label="Abrir menú"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <ul class="navbar__links" id="navLinks">
+            <li>
+              <a href="index.html" class="is-active">Inicio</a>
+            </li>
+
+            <li>
+              <a href="Nosotros.html">Quiénes Somos</a>
+            </li>
+
+            <li>
+              <a href="contacto.html">Eventos y Reservaciones</a>
+            </li>
+          </ul>
+
+        </div>
+      </nav>
+
+    </header>
+
+
+    <!-- =======================================================
+         GRID ITEM: MAIN
+         Dentro de main se utiliza otro CSS Grid para organizar
+         las diferentes secciones de la página.
+         ======================================================= -->
+    <main class="main-grid">
+
+
+      <!-- =====================================================
+           GRID ITEM: HERO
+           ===================================================== -->
+      <section class="hero">
+
+        <div class="hero__image"></div>
+
+        <div class="hero__content fade-in">
+
+          <p class="hero__eyebrow">
+            Alegría, Usulután · El Salvador
+          </p>
+
+          <h1 class="hero__title">
+            La Fonda<br>de Alegría
+          </h1>
+
+          <p class="hero__subtitle">
+            Restaurante La Fonda de Alegría donde en un clima agradable
+            encontrará los más apetecibles platos de la zona con la atención
+            que todo cliente se merece.
+          </p>
+
+          <div class="btn-row">
+            <a href="contacto.html" class="btn btn--gold">
+              Reservar ahora →
+            </a>
+
+            <a href="Nosotros.html" class="btn btn--dark">
+              Conócenos
+            </a>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           GRID ITEM: QUIÉNES SOMOS
+           Este contenedor utiliza 2 columnas.
+           El texto ocupa la primera columna y la imagen
+           la segunda.
+           ===================================================== -->
+      <section class="section section--cocoa about-section">
+
+        <div class="content-wrap about-grid">
+
+          <!-- GRID ITEM: contenido textual -->
+          <div class="about-copy fade-in">
+
+            <span class="trace-seal">
+              Desde<br>Alegría
+            </span>
+
+            <p class="subhead">
+              Un restaurante, bar, hostal y vivero
+            </p>
+
+            <p class="about-text">
+              Situados en la ciudad de Alegría, a 1200 metros sobre el nivel
+              del mar, ofrecemos un ambiente exclusivo y seguro para toda tu
+              familia. Carnes, mariscos, aves, pupusas y platillos típicos,
+              rodeados de naturaleza y con un mirador increíble.
+            </p>
+
+            <div class="about-button">
+              <a href="Nosotros.html" class="btn btn--gold">
+                Conoce nuestra historia →
+              </a>
+            </div>
+
+          </div>
+
+
+          <!-- GRID ITEM: imagen panorámica -->
+          <div class="about-image fade-in fade-in--delay-1">
+
+            <img
+              src="https://image.jimcdn.com/app/cms/image/transf/dimension=820x10000:format=jpg/path/scaccd98ad13be2f5/image/i140bac8fa439d2f6/version/1676103354/image.jpg"
+              alt="Vista panorámica de La Fonda de Alegría"
+            >
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           GRID ITEM: RESERVA TU EVENTO
+           El texto se distribuye mediante Grid.
+           El título ocupa varias columnas.
+           ===================================================== -->
+      <section class="section section--gold event-section">
+
+        <div class="content-wrap event-grid">
+
+          <!-- GRID ITEM: etiqueta -->
+          <p class="subhead subhead--on-light event-label fade-in">
+            ¿Celebrando algo especial?
+          </p>
+
+          <!-- GRID ITEM: título
+               Ocupa las dos columnas con grid-column: 1 / -1 -->
+          <h2 class="display event-title fade-in fade-in--delay-1">
+            Reserva tu evento
+          </h2>
+
+          <!-- GRID ITEM: descripción -->
+          <p class="event-text">
+            Banquetes, reuniones familiares, cumpleaños y celebraciones
+            especiales en un entorno natural, rústico y lleno de alegría.
+            Cuéntanos tu fecha y nosotros nos encargamos del resto.
+          </p>
+
+          <!-- GRID ITEM: botón -->
+          <div class="event-button">
+            <a href="contacto.html" class="btn btn--dark">
+              Ver disponibilidad →
+            </a>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           GRID ITEM: LO QUE NOS HACE ÚNICOS
+           El contenedor de tarjetas es CSS Grid de 3 columnas.
+           ===================================================== -->
+      <section class="section section--cream unique-section">
+
+        <div class="content-wrap">
+
+          <!-- Encabezado de la sección (no es grid item:
+               su contenedor .content-wrap no usa Grid) -->
+          <div class="unique-heading">
+            <p class="subhead subhead--on-light fade-in">
+              Lo que nos hace únicos
+            </p>
+          </div>
+
+
+          <!-- GRID CONTAINER: tarjetas -->
+          <div class="card-grid">
+
+            <!-- GRID ITEM: tarjeta 1 -->
+            <article class="card fade-in">
+
+              <span class="card__badge">
+                Gastronomía
+              </span>
+
+              <h3 class="card__title">
+                Sabor de la zona
+              </h3>
+
+              <p class="card__text">
+                Carnes, mariscos, aves y pupusas preparadas con recetas
+                tradicionales de Usulután.
+              </p>
+
+            </article>
+
+
+            <!-- GRID ITEM: tarjeta 2 -->
+            <article class="card fade-in fade-in--delay-1">
+
+              <span class="card__badge">
+                Ambiente
+              </span>
+
+              <h3 class="card__title">
+                Naturaleza y altura
+              </h3>
+
+              <p class="card__text">
+                A 1200 metros sobre el nivel del mar, con clima fresco y
+                un mirador inolvidable.
+              </p>
+
+            </article>
+
+
+            <!-- GRID ITEM: tarjeta 3 -->
+            <article class="card fade-in fade-in--delay-2">
+
+              <span class="card__badge">
+                Familia
+              </span>
+
+              <h3 class="card__title">
+                Espacio pet friendly
+              </h3>
+
+              <p class="card__text">
+                Área de juegos y espacios pensados para que toda la familia,
+                incluidas las mascotas, disfrute.
+              </p>
+
+            </article>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+    </main>
+
+
+    <!-- =======================================================
+         GRID ITEM: FOOTER
+         El footer tiene su propio Grid de tres columnas.
+         ======================================================= -->
+    <footer class="site-footer">
+
+      <div class="content-wrap footer-grid">
+
+        <!-- GRID ITEM: información del restaurante -->
+        <div class="footer-brand">
+
+          <p class="site-footer__brand">
+            La Fonda de Alegría
+          </p>
+
+          <p class="footer-address">
+            Final Calle Gólgota, El Calvario, Alegría,
+            Usulután, El Salvador, C.A.
+          </p>
+
+        </div>
+
+
+        <!-- GRID ITEM: navegación -->
+        <div class="site-footer__col">
+
+          <h4>Navegación</h4>
+
+          <a href="index.html">
+            Inicio
+          </a>
+
+          <a href="Nosotros.html">
+            Quiénes Somos
+          </a>
+
+          <a href="contacto.html">
+            Eventos y Reservaciones
+          </a>
+
+        </div>
+
+
+        <!-- GRID ITEM: contacto y redes -->
+        <div class="site-footer__col">
+
+          <h4>Contacto</h4>
+
+          <p>
+            📞 +(503) 2628-1198
+          </p>
+
+          <a
+            href="https://www.facebook.com/lafondadealegriausulutan"
+            target="_blank"
+            rel="noopener"
+          >
+            Facebook
+          </a>
+
+          <a
+            href="https://instagram.com/fondadealegria"
+            target="_blank"
+            rel="noopener"
+          >
+            Instagram
+          </a>
+
+          <a
+            href="http://www.tiktok.com/@fondadealegria"
+            target="_blank"
+            rel="noopener"
+          >
+            TikTok
+          </a>
+
+        </div>
+
+
+        <!-- GRID ITEM: derechos
+             Ocupa las tres columnas -->
+        <div class="site-footer__bottom">
+
+          <p>
+            &copy; 2026 La Fonda de Alegría — Proyecto académico,
+            Desarrollo Web I.
+          </p>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+    <!-- GRID ITEM: franja final -->
+    <div class="gold-strip"></div>
+
+  </div>
+
+
+  <!-- =========================================================
+       SCRIPT DEL MENÚ MÓVIL
+       ========================================================= -->
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('is-open');
+    });
+  </script>
+
+</body>
+</html>

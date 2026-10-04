@@ -1,12 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Valley+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
-
+/* ==========================================================
+   Guía 2: colores rojo vino y fondo de cuadros
+   ========================================================== */
 :root {
-    --fawn: #d0873e;
-    --wheat: #F6DFB3;
-    --misty-rose: #FAD6D3;
-    --salmon-pink: #e4627e;
-    --bole: #83513E;
+    --acento: #9c3b3f;
+    --acento-claro: #ecc6c7;
+    --acento-fondo: #fbf1f1;
+    --texto-banner: #fff4f1;
+
+    --rojo: #9c1f17;
+    --blanco: #ffffff;
+    --texto: #2b2b2b;
+    --texto-suave: #5c5c5c;
+
+    --difuminado: radial-gradient(
+        ellipse at center,
+        rgba(55, 10, 12, 0.85) 0%,
+        rgba(55, 10, 12, 0.6) 40%,
+        rgba(55, 10, 12, 0) 80%
+    );
 }
 
 * {
@@ -17,89 +28,219 @@
 
 body {
     font-family: Arial, sans-serif;
-    color: var(--bole);
-    background-color: #fffaf6;
+    color: var(--texto);
+    background-color: var(--blanco);
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* encabezado */
+/* ------ ENCABEZADO ------ */
 .banner {
-    background-color: var(--misty-rose);
-    color: var(--salmon-pink);
-    text-align: center;
-    padding: 40px 20px;
-    text-transform: uppercase;
-}
-
-.banner h1, h2 {
-    font-family: "Merriweather", serif;
-    font-size: 2.2em;
-    margin-bottom: 8px;
-}
-
-.subtitulo {
-    font-size: 1em;
-    color: var(--salmon-pink);;
-}
-
-/* contenido */
-.contenido {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 30px 20px;
-}
-
-section {
-    margin-bottom: 40px;
-}
-
-h2 {
-    color: var(--fawn);
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-    font-size: 1.5em;
-}
-
-ul {
-    list-style: disc;
-    margin-left: 20px;
-}
-
-li {
-    margin-bottom: 8px;
-}
-
-a {
-    color: #4b291b;
-    text-decoration: underline;
-}
-
-a:hover {
-    color: var(--bole);
-}
-
-/* video  */
-.video-container {
     position: relative;
+    background-image: var(--difuminado), url("../img/fondorojo.png");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 72px 20px 56px;
+}
+
+.volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--texto);
+    background-color: var(--blanco);
+    padding: 6px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: color 0.2s ease;
+}
+
+.volver:hover,
+.volver:focus-visible {
+    color: var(--acento);
+}
+
+.numero-guia {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--texto-banner);
+}
+
+.banner h1 {
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+    font-weight: 700;
+    color: var(--texto-banner);
+    max-width: 620px;
+    margin: 12px auto 0;
+}
+
+/* ------ CONTENIDO ------ */
+.contenido {
+    flex: 1;
     width: 100%;
-    max-width: 700px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+}
+
+.bloque {
+    margin-bottom: 56px;
+}
+
+.bloque h2 {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: var(--acento);
+    border-bottom: 3px solid var(--acento-claro);
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+}
+
+/* ------ TARJETAS ------ */
+.tarjetas {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: 100%;
+    padding: 20px;
+    background-color: var(--acento-fondo);
+    border: 2px solid var(--acento-claro);
+    border-left: 6px solid var(--acento);
+    border-radius: 12px;
+    color: var(--texto);
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta:hover,
+.tarjeta:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.etiqueta {
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--acento);
+}
+
+.tarjeta-titulo {
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+/* ------ TABLA ------ */
+.tabla-contenedor {
+    overflow-x: auto;
+    border: 2px solid var(--acento-claro);
+    border-radius: 12px;
+}
+
+table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    font-size: 0.92rem;
+    border-bottom: 1px solid var(--acento-claro);
+}
+
+th {
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    background-color: var(--acento-claro);
+    color: var(--texto);
+}
+
+td:first-child {
+    width: 45%;
+    color: var(--texto-suave);
+    border-right: 1px solid var(--acento-claro);
+}
+
+tbody tr:nth-child(even) td {
+    background-color: var(--acento-fondo);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ------ VIDEO ------ */
+.video-contenedor {
+    width: 100%;
+    max-width: 760px;
     aspect-ratio: 16 / 9;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
+    border: 4px solid var(--acento-claro);
 }
 
-.video-container iframe {
+.video-contenedor iframe {
     width: 100%;
     height: 100%;
     border: none;
 }
 
-/* Pie de pagina */
+/* ------ PIE DE PÁGINA ------ */
 .pie {
-    background-color: var(--wheat);
-    color: var(--bole);
+    background-image: var(--difuminado), url("../img/fondorojo.png");
+    background-size: cover;
+    background-position: center;
     text-align: center;
-    padding: 15px;
-    font-size: 0.9em;
+    padding: 32px 20px;
+}
+
+.pie p {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    text-transform: uppercase;
+    color: var(--texto-banner);
+}
+
+/* ------ RESPONSIVE ------ */
+@media (max-width: 600px) {
+    .banner {
+        padding-top: 80px;
+    }
+
+    .volver {
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+
+    .contenido {
+        padding: 32px 16px 48px;
+    }
 }

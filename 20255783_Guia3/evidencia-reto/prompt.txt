@@ -1,0 +1,38 @@
+Actúa como desarrollador front-end. Necesito una nueva versión de la página de inicio (index.html) de un sitio web académico para el curso Desarrollo Web I. Te adjunto el index.html actual y la hoja de estilos style.css que comparte todo el sitio.
+
+1. TEMÁTICA Y FINALIDAD
+El sitio es de La Fonda de Alegría, un restaurante, bar, hostal y vivero ubicado en Alegría, Usulután, El Salvador, a 1200 metros sobre el nivel del mar. La página de inicio debe presentar el lugar, invitar a conocer su historia y motivar a reservar eventos. El sitio tiene tres páginas: Inicio (index.html), Quiénes Somos (Nosotros.html) y Eventos y Reservaciones (contacto.html). Solo vas a rehacer la de Inicio.
+
+2. CONTENIDO QUE DEBE CONSERVARSE
+Conserva todo el contenido del index.html adjunto, con estas secciones en este orden:
+- Barra de navegación con el logo "Fonda de Alegría", los enlaces a las tres páginas y el botón de menú para móviles con su script.
+- Hero con la imagen de fondo, la ubicación, el título, la descripción y los botones "Reservar ahora" y "Conócenos".
+- Las dos bandas marquee con sus textos y abejas.
+- Bloque "Quiénes Somos" con el sello "Desde Alegría", el texto, el botón y la imagen panorámica.
+- Bloque "Reserva tu evento" con su texto y botón.
+- Bloque "Lo que nos hace únicos" con las tres tarjetas (Gastronomía, Ambiente, Familia).
+- Footer con dirección, navegación, teléfono, redes sociales y derechos.
+No cambies los textos, las URL de las imágenes, los enlaces a redes ni los nombres de los archivos enlazados. No inventes contenido nuevo. Sí puedes cambiar la distribución visual.
+
+3. IDENTIDAD VISUAL
+La página debe verse coherente con las otras dos páginas del sitio. Mantén:
+- La paleta de colores definida en las variables de style.css: dark cocoa (#3b2722), cream parchment (#f2ebd0), honeycomb gold (#ffca50), barn red (#a0342a), cornflower blue (#6aacc2) y sage green (#6fa162).
+- Las tipografías: Playfair Display para títulos, DM Serif Display para subtítulos, Barlow Condensed para menú, botones y etiquetas, y Times New Roman para el texto. Cárgalas desde Google Fonts igual que en el HTML actual.
+- Las secciones como bandas de color de fondo (cacao, dorado y crema).
+- Los botones tipo píldora, las tarjetas sin esquinas redondeadas y las bandas marquee animadas.
+- Una estética rústica, cálida y natural.
+
+4. USO OBLIGATORIO DE CSS GRID
+La distribución principal de la página debe construirse con CSS Grid, no solo una galería o un componente aislado:
+- Un contenedor principal que envuelva toda la página debe ser un contenedor grid que organice el encabezado, el contenido y el pie de página con grid-template-areas.
+- Las secciones principales (hero, Quiénes Somos, Reserva tu evento, Lo que nos hace únicos y footer) deben distribuir su contenido con grid-template-columns o grid-template-rows, gap y ubicación de elementos con grid-column, grid-row o grid-area.
+- Al menos un elemento debe ocupar varias columnas o filas con span.
+- La página debe ser responsive: en pantallas pequeñas las columnas deben pasar a una sola mediante media queries.
+Puedes usar Flexbox solo dentro de componentes pequeños, como el menú o la fila de botones.
+
+5. FORMATO DE ENTREGA
+- Entrega dos bloques de código separados y completos: index.html y css/inicio.css.
+- El index.html debe enlazar únicamente css/inicio.css. No modifiques style.css, porque lo usan las otras páginas; copia en inicio.css las variables y estilos necesarios para mantener la identidad.
+- No uses estilos en línea con el atributo style; pasa todo al CSS.
+- Agrega comentarios en el CSS que indiquen cuál es cada contenedor grid y cuáles son sus grid items, porque tendré que explicar el código en un video.
+- No uses frameworks ni librerías como Bootstrap o Tailwind.

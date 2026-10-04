@@ -1,8 +1,10 @@
-
+/* ==========================================================
+   Guía 3: colores celeste y fondo de cuadros
+   ========================================================== */
 :root {
-    --acento: #c9506a;
-    --acento-claro: #fbd3d9;
-    --acento-fondo: #fff4f6;
+    --acento: #3f7896;
+    --acento-claro: #c7e0ee;
+    --acento-fondo: #f1f8fc;
 
     --rojo: #9c1f17;
     --blanco: #ffffff;
@@ -37,7 +39,7 @@ body {
 /* ------ ENCABEZADO ------ */
 .banner {
     position: relative;
-    background-image: var(--difuminado), url("../img/fondorosa.png");
+    background-image: var(--difuminado), url("../img/fondoceleste.png");
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -212,7 +214,7 @@ tbody tr:last-child td {
 
 /* ------ PIE DE PÁGINA ------ */
 .pie {
-    background-image: var(--difuminado), url("../img/fondorosa.png");
+    background-image: var(--difuminado), url("../img/fondoceleste.png");
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -241,4 +243,18 @@ tbody tr:last-child td {
     .contenido {
         padding: 32px 16px 48px;
     }
+}
+
+/* ------ VIDEO PENDIENTE ------ */
+.video-pendiente {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 20px;
+    text-align: center;
+    font-family: "Space Mono", "Courier New", monospace;
+    font-weight: 700;
+    color: var(--acento);
+    background-color: var(--acento-fondo);
+    border: 3px dashed var(--acento-claro);
+    border-radius: 12px;
 }

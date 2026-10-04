@@ -1,0 +1,386 @@
+:root {
+    --color-texto: #342e29;
+    --color-fondo: #f5efe6;
+    --color-principal: #293e36;
+    --color-acento: #93472f;
+    --color-superficie: #ffffff;
+    --color-contraste: #ead1ad;
+    --color-borde: #ded3c4;
+    --color-fondo-secundario: #eadfce;
+    --color-capa-inicial: rgba(25, 35, 29, 0.85);
+    --color-capa-final: rgba(25, 35, 29, 0.65);
+    --color-sombra: rgba(52, 46, 41, 0.10);
+}
+
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+}
+
+h2, h3 {
+    color: var(--color-principal);
+}
+
+a {
+    color: var(--color-acento);
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--color-principal);
+}
+
+
+/* ------ ENCABEZADO Y MENÚ ------ */
+.encabezado-principal {
+    color: var(--color-superficie);
+    background-color: var(--color-principal);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Paso 35:
+    a) No, el encabezado se sigue desplazando junto con la página
+    b) Falta una coordenada, como top, que le indique en qué parte
+        de la ventana se debe quedar adherido el encabezado */
+
+/* Paso 36: con top: 0 el encabezado se queda adherido cuando su borde
+    superior llega al borde superior de la ventana, pero las imágenes y
+    las etiquetas de las tarjetas pasan por encima de él */
+
+/* Paso 37: el encabezado necesita un valor superior en el z-index
+    para que se superponga ante todos los elementos de la página, ya que
+    sin esto, las imágenes y las etiquetas de las tarjetas pasaban por
+    encima del encabezado debido a que las etiquetas tienen z-index: 1 y
+    el encabezado no tenía ninguno definido, por eso necesita un valor
+    mayor que 1 */
+
+.marca {
+    color: var(--color-superficie);
+    font-size: 1.15rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Barra de navegación */
+.barra-navegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    padding: 1rem 0;
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.menu a {
+    color: var(--color-superficie);
+    text-decoration: none;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+    color: var(--color-contraste);
+}
+
+
+/* ------ PRESENTACIÓN PRINCIPAL ------ */
+.presentacion {
+    padding: 4rem 0;
+    color: var(--color-superficie);
+    background-color: var(--color-principal);
+    background-image:
+        linear-gradient(
+            to right,
+            var(--color-capa-inicial),
+            var(--color-capa-final)
+        ),
+        url("../images/gran-muralla-china.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.presentacion h1 {
+    max-width: 760px;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.presentacion p {
+    max-width: 640px;
+}
+
+.sobretitulo {
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--color-acento);
+}
+
+.presentacion .sobretitulo {
+    color: var(--color-contraste);
+}
+
+.boton-principal {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.25rem;
+    color: var(--color-superficie);
+    background-color: var(--color-acento);
+    border-radius: 0.3rem;
+    text-decoration: none;
+}
+
+.boton-principal:hover,
+.boton-principal:focus-visible {
+    color: var(--color-principal);
+    background-color: var(--color-contraste);
+}
+
+
+/* ------ CONSTRUCCIÓN DE GALERÍA ------ */
+.seccion-maravillas {
+    padding: 3rem 0;
+}
+
+.titulo-seccion {
+    max-width: 680px;
+    margin-bottom: 2rem;
+}
+
+.titulo-seccion h2 {
+    margin: 0 0 0.75rem;
+    font-size: 2rem;
+}
+
+/* Paso 16:
+    a) El Flexbox trata de formar una sola fila con las 7 tarjetas
+    b) Las tarjetas reducen su tamaño para caber en una sola línea
+    c) El contenido no es cómodo de leer, ya que el texto queda apretado */
+
+/* Paso 17: al agregar 'flex-wrap: wrap' las tarjetas pueden hacer un salto de
+    línea en caso de que se reduzca el tamaño de la pantalla */
+
+/* Paso 18: con 'flex: 1 1 300px' cada tarjeta puede crecer, puede reducirse
+    y parte de un tamaño base de 300px, por eso la cantidad de tarjetas por
+    fila cambia según el ancho del navegador */
+
+/* Paso 19: el gap ayuda a crear espacio entre las tarjetas, sin agregar
+    espacio a los bordes del contenedor. En cambio, padding es el espacio
+    interno de cada tarjeta, entre su borde y su contenido */
+
+/* Paso 20:
+    a) La última tarjeta crece más ya que es la única en la fila, por tanto,
+        ocupa todo el espacio disponible
+    b) El primer valor de flex (flex-grow: 1) es el que permite el crecimiento
+    c) No, ya que se ve mal visualmente si se compara con las demás tarjetas,
+        por eso se utiliza max-width y justify-content */
+
+.maravillas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.maravilla {
+    flex: 1 1 300px;
+    max-width: 360px;
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px var(--color-sombra);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Paso 22: al indicar 'overflow: hidden' el navegador oculta todo lo que
+    está fuera del área de las tarjetas. Como el área de la tarjeta tiene
+    esquinas redondeadas, las esquinas de la imagen que sobresalían se
+    recortan y ahora se respeta el redondeo */
+
+.maravilla img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Paso 23:
+    a) La foto de Petra no mantiene su proporción, ya que al usar
+        width: 100% y height: 220px, todas las imágenes se
+        estiran o se aplastan para llenar esa área
+    b) Las fotografías verticales se deforman ya que se comprimen a lo alto,
+        mientras que en las horizontales la deformación es menor y casi
+        imperceptible porque su forma es parecida a la del área definida */
+
+/* Paso 24: al usar 'object-fit: contain' se presenta la imagen completa sin
+    deformarse, pero aparecen espacios vacíos.
+    Con 'object-fit: cover' la imagen llena toda el área sin deformarse, pero
+    se recortan partes de ella, por ejemplo, Petra pierde contenido arriba y abajo.
+    Sin embargo, se conserva cover porque todas las tarjetas quedan del mismo
+    tamaño y sin espacios vacíos. */
+
+.maravilla-contenido {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.maravilla-contenido .ubicacion {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--color-acento);
+}
+
+.maravilla-contenido h3 {
+    font-size: 1.35rem;
+    margin: 0.25rem 0 0.75rem;
+}
+
+.maravilla-contenido a {
+    font-weight: bold;
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* Paso 26: el margen automático absorbe todo el espacio libre
+    que queda entre el párrafo y el enlace dentro de .maravilla-contenido,
+    por eso los enlaces de una misma fila quedan a la misma altura */
+
+/* Paso 27:
+    a) La tarjeta se desplaza 50px a la derecha y 30px hacia abajo
+    b) Se calcula el desplazamiento desde la posición original que la
+        tarjeta ocupa en el flujo normal
+    c) No, su espacio queda sin ocuparse y las demás tarjetas se mantienen en su lugar
+    d) Sí, al desplazarse puede superponerse con las tarjetas vecinas,
+        y el z-index determina que quede por encima de ellas */
+
+/* Paso 28:
+    a) La tarjeta se desplaza hacia la izquierda con 'right: 50px'
+    b) Porque la coordenada no indica hacia dónde se mueve el elemento,
+        sino desde qué lado se empuja o se separa el elemento de su
+        posición original */
+
+/* Paso 29:
+    a) Las demás tarjetas se acomodaron, ocupando el espacio reservado de Petra
+    b) No, el espacio reservado de Petra fue ocupado por el Coliseo de Roma
+    c) El área de top y left se calcula desde el inicio del documento, es decir, la
+        esquina superior izquierda de la página, ya que ningún antecesor de la
+        tarjeta está posicionado para tomar como referente al antecesor
+        más cercano que tenga un position diferente a static */
+
+/* Paso 30:
+    a) Top y left se calculan desde la esquina superior izquierda de su antecesor más
+        cercano, en este caso es '.maravillas', el contenedor de las tarjetas
+    b) Se modificó porque 'position: relative' convierte a .maravillas
+        en un elemento posicionado, pudiendo ya ser ocupado como referencia de sus
+        hijos descendientes absolutos. Como no se le asignaron top ni left,
+        el contenedor no se desplaza
+
+   Paso 31:
+    a) El posicionamiento relativo
+    b) El posicionamiento absoluto
+    c) Se toma como referencia el antecesor posicionado más cercano
+        con position distinto de static. Si no existe ninguno, se usa
+        el área inicial del documento */
+
+/* Paso 32: con 'position: static' top y left dejan de producir efecto,
+    porque un elemento estático no se considera posicionado */
+
+
+/* ------ ETIQUETAS SOBRE LAS FOTOGRAFÍAS ------ */
+.maravilla-imagen {
+    position: relative;
+}
+
+.continente {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+    padding: 0.25rem 0.75rem;
+    color: var(--color-superficie);
+    background-color: var(--color-acento);
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+
+/* ------ BOTÓN VOLVER ARRIBA ------ */
+.volver-arriba {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    color: var(--color-superficie);
+    background-color: var(--color-acento);
+    border: 2px solid var(--color-superficie);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+/* Paso 38:
+    a) El encabezado conserva su espacio original al usar sticky
+    b) El botón permanece ubicado respecto de la ventana desde el inicio */
+
+
+/* ------ SECCIÓN HISTÓRICA Y PIE DE PÁGINA ------ */
+.seccion-historia {
+    padding: 3rem 0;
+    background-color: var(--color-fondo-secundario);
+}
+
+.historia-contenido {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.historia-contenido > * {
+    flex: 1 1 300px;
+}
+
+.pie-pagina {
+    padding: 2rem 0 5rem;
+    color: var(--color-superficie);
+    background-color: var(--color-principal);
+}

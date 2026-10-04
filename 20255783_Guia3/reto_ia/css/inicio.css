@@ -1,0 +1,1140 @@
+/* ==========================================================================
+   LA FONDA DE ALEGRÍA — INICIO
+   Hoja exclusiva para index.html
+   Materia: Desarrollo Web I
+
+   IMPORTANTE:
+   Esta hoja NO modifica style.css.
+   Contiene las variables y estilos necesarios para esta página.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. VARIABLES CSS
+   ========================================================================== */
+
+:root {
+
+  /* --- Colores de la identidad visual --- */
+  --color-dark-cocoa: #3b2722;
+  --color-cream-parchment: #f2ebd0;
+  --color-charcoal: #000000;
+  --color-honeycomb-gold: #ffca50;
+  --color-barn-red: #a0342a;
+  --color-cornflower-blue: #6aacc2;
+  --color-sage-green: #6fa162;
+
+  /* --- Tipografías --- */
+  --font-display: 'Playfair Display', 'Times New Roman', serif;
+  --font-subhead: 'DM Serif Display', 'Times New Roman', serif;
+  --font-ui: 'Barlow Condensed', Arial, sans-serif;
+  --font-body: 'Times New Roman', Georgia, serif;
+
+  /* --- Tamaños de texto --- */
+  --text-body: 16px;
+  --text-heading: 28px;
+  --text-display: 90px;
+  --text-display-lg: 135px;
+
+  /* --- Espaciado --- */
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-80: 80px;
+
+  /* --- Bordes --- */
+  --radius-cards: 0px;
+  --radius-sections: 0px;
+  --radius-pill: 1000px;
+  --radius-badge: 500px;
+
+  /* --- Otros --- */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+}
+
+
+/* ==========================================================================
+   2. RESET
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  color: var(--color-dark-cocoa);
+  background-color: var(--color-cream-parchment);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* ==========================================================================
+   3. GRID PRINCIPAL DE TODA LA PÁGINA
+   ========================================================================== */
+
+/*
+   GRID CONTAINER PRINCIPAL
+   Organiza las tres grandes partes del sitio:
+
+   HEADER  → navegación
+   MAIN    → contenido principal
+   FOOTER  → pie de página
+
+   Cada elemento funciona como GRID ITEM mediante grid-area.
+*/
+
+.page-grid {
+  min-height: 100vh;
+
+  display: grid;
+
+  grid-template-areas:
+    "header"
+    "main"
+    "footer"
+    "strip";
+
+  grid-template-rows:
+    auto
+    1fr
+    auto
+    8px;
+}
+
+/* GRID ITEMS PRINCIPALES */
+
+.site-header {
+  grid-area: header;
+
+  /* El sticky va en el header porque su padre (page-grid) mide toda
+     la página. En .navbar no funcionaba: su padre medía lo mismo que ella. */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.main-grid {
+  grid-area: main;
+}
+
+.site-footer {
+  grid-area: footer;
+}
+
+.gold-strip {
+  grid-area: strip;
+}
+
+
+/* ==========================================================================
+   4. CONTENEDOR GENERAL
+   ========================================================================== */
+
+.content-wrap {
+  width: min(1100px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+
+/* ==========================================================================
+   5. GRID DEL MAIN
+   ========================================================================== */
+
+/*
+   GRID CONTAINER:
+   main-grid organiza verticalmente las secciones principales.
+
+   Cada sección es un GRID ITEM.
+
+   hero
+   about
+   event
+   unique
+*/
+
+.main-grid {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  grid-template-rows:
+    minmax(650px, 88vh)
+    auto
+    auto
+    auto;
+
+  gap: 0;
+}
+
+
+/* ==========================================================================
+   6. NAVEGACIÓN
+   ========================================================================== */
+
+.navbar {
+  background-color: var(--color-dark-cocoa);
+  padding: 18px 0;
+}
+
+.navbar__inner {
+  width: min(1300px, calc(100% - 48px));
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 26px;
+  color: var(--color-honeycomb-gold);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.navbar__logo span {
+  color: var(--color-cream-parchment);
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navbar__links a {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+
+  color: var(--color-cream-parchment);
+
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.navbar__links a:hover,
+.navbar__links a.is-active {
+  color: var(--color-honeycomb-gold);
+  border-bottom-color: var(--color-honeycomb-gold);
+}
+
+
+/* Botón del menú móvil */
+
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+}
+
+.navbar__toggle span {
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-cream-parchment);
+}
+
+
+/* ==========================================================================
+   7. HERO
+   ========================================================================== */
+
+/*
+   GRID CONTAINER:
+   hero utiliza Grid para superponer la imagen y el contenido.
+
+   GRID ITEMS:
+   - hero__image
+   - hero__content
+
+   Ambos ocupan la misma celda del Grid.
+*/
+
+.hero {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+
+  min-height: 88vh;
+
+  overflow: hidden;
+  background-color: var(--color-dark-cocoa);
+}
+
+/* GRID ITEM: imagen */
+
+.hero__image {
+  grid-column: 1;
+  grid-row: 1;
+
+  background-image:
+    url('https://image.jimcdn.com/app/cms/image/transf/dimension=1920x10000:format=jpg/path/scaccd98ad13be2f5/image/ifd1d780230cffd39/version/1676106801/image.jpg');
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* Capa oscura sobre la imagen */
+
+.hero__image::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(59, 39, 34, 0.35) 0%,
+      rgba(59, 39, 34, 0.88) 100%
+    );
+}
+
+
+/* GRID ITEM: contenido */
+
+.hero__content {
+  grid-column: 1;
+  grid-row: 1;
+
+  align-self: center;
+  justify-self: center;
+
+  position: relative;
+  z-index: 2;
+
+  width: min(900px, calc(100% - 48px));
+
+  text-align: center;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  color: var(--color-honeycomb-gold);
+
+  margin-bottom: var(--spacing-16);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(55px, 10vw, 135px);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -2px;
+
+  color: var(--color-cream-parchment);
+
+  margin-bottom: var(--spacing-32);
+}
+
+.hero__subtitle {
+  max-width: 650px;
+  margin: 0 auto var(--spacing-32);
+
+  font-family: var(--font-body);
+  font-size: 19px;
+  line-height: 1.5;
+
+  color: var(--color-cream-parchment);
+}
+
+
+/* ==========================================================================
+   8. BOTONES
+   ========================================================================== */
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-16);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+
+  padding: 15px 30px;
+
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.btn--gold {
+  background-color: var(--color-honeycomb-gold);
+  color: var(--color-dark-cocoa);
+}
+
+.btn--gold:hover {
+  background-color: #ffd873;
+}
+
+.btn--dark {
+  background-color: var(--color-dark-cocoa);
+  color: var(--color-cream-parchment);
+}
+
+.btn--dark:hover {
+  background-color: #4d332c;
+}
+
+
+/* ==========================================================================
+   9. SECCIONES GENERALES
+   ========================================================================== */
+
+.section {
+  width: 100%;
+  padding: var(--spacing-80) 0;
+}
+
+.section--cocoa {
+  background-color: var(--color-dark-cocoa);
+  color: var(--color-cream-parchment);
+}
+
+.section--gold {
+  background-color: var(--color-honeycomb-gold);
+  color: var(--color-dark-cocoa);
+}
+
+.section--cream {
+  background-color: var(--color-cream-parchment);
+  color: var(--color-dark-cocoa);
+}
+
+
+/* ==========================================================================
+   10. GRID — QUIÉNES SOMOS
+   ========================================================================== */
+
+/*
+   GRID CONTAINER: about-grid
+
+   Dos columnas:
+   ┌────────────────────┬────────────────────┐
+   │     texto          │      imagen        │
+   │   GRID ITEM        │    GRID ITEM       │
+   └────────────────────┴────────────────────┘
+*/
+
+.about-grid {
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 64px;
+
+  align-items: center;
+}
+
+
+/* GRID ITEM: texto */
+
+.about-copy {
+  grid-column: 1;
+}
+
+.trace-seal {
+  width: 92px;
+  height: 92px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border-radius: 50%;
+  border: 3px solid var(--color-dark-cocoa);
+
+  background-color: var(--color-cornflower-blue);
+  color: var(--color-dark-cocoa);
+
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  margin-bottom: var(--spacing-24);
+}
+
+.subhead {
+  font-family: var(--font-subhead);
+  font-size: clamp(30px, 4vw, 55px);
+  font-weight: 400;
+  line-height: 1;
+
+  color: var(--color-barn-red);
+}
+
+.about-copy .subhead {
+  color: var(--color-cream-parchment);
+}
+
+.about-text {
+  margin-top: var(--spacing-24);
+
+  max-width: 520px;
+
+  color: var(--color-cream-parchment);
+}
+
+
+/* GRID ITEM: imagen */
+
+.about-image {
+  grid-column: 2;
+
+  position: relative;
+}
+
+.about-image::before {
+  content: "";
+
+  position: absolute;
+
+  top: 14px;
+  left: 14px;
+
+  width: 100%;
+  height: 100%;
+
+  border: 3px solid var(--color-honeycomb-gold);
+
+  z-index: 0;
+}
+
+.about-image img {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 430px;
+
+  object-fit: cover;
+
+  border: 3px solid var(--color-honeycomb-gold);
+
+  transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+  transform: translate(-6px, -6px);
+}
+
+.about-button {
+  margin-top: var(--spacing-32);
+}
+
+
+/* ==========================================================================
+   11. GRID — RESERVA TU EVENTO
+   ========================================================================== */
+
+/*
+   GRID CONTAINER: event-grid
+
+   El contenido está organizado en dos columnas.
+
+   El título utiliza:
+   grid-column: 1 / -1
+
+   Por lo tanto ocupa TODAS las columnas.
+*/
+
+.event-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: var(--spacing-16) var(--spacing-48);
+
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* GRID ITEM: etiqueta */
+
+.event-label {
+  grid-column: 1 / -1;
+
+  justify-self: center;
+
+  color: var(--color-dark-cocoa);
+}
+
+
+/* GRID ITEM: título */
+
+.event-title {
+  grid-column: 1 / -1;
+
+  color: var(--color-dark-cocoa);
+
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 90px);
+  line-height: 0.85;
+
+  margin: var(--spacing-8) 0;
+}
+
+
+/* GRID ITEM: descripción */
+
+.event-text {
+  grid-column: 1;
+
+  max-width: 560px;
+
+  justify-self: end;
+
+  color: var(--color-dark-cocoa);
+
+  text-align: right;
+}
+
+
+/* GRID ITEM: botón */
+
+.event-button {
+  grid-column: 2;
+
+  justify-self: start;
+}
+
+
+/* ==========================================================================
+   12. GRID — LO QUE NOS HACE ÚNICOS
+   ========================================================================== */
+
+/*
+   GRID CONTAINER: card-grid
+
+   Tres columnas iguales:
+
+   ┌────────────┬────────────┬────────────┐
+   │ tarjeta 1  │ tarjeta 2  │ tarjeta 3  │
+   │ GRID ITEM  │ GRID ITEM  │ GRID ITEM  │
+   └────────────┴────────────┴────────────┘
+*/
+
+.unique-heading {
+  text-align: center;
+}
+
+.unique-heading .subhead {
+  color: var(--color-dark-cocoa);
+}
+
+
+/* GRID CONTAINER: tarjetas */
+
+.card-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: var(--spacing-32);
+
+  margin-top: var(--spacing-48);
+}
+
+
+/* GRID ITEMS: tarjetas */
+
+.card {
+  min-height: 260px;
+
+  display: grid;
+
+  grid-template-rows:
+    auto
+    auto
+    1fr;
+
+  align-content: start;
+
+  background-color: var(--color-cream-parchment);
+
+  border: 3px solid var(--color-dark-cocoa);
+  border-radius: var(--radius-cards);
+
+  padding: var(--spacing-32);
+
+  color: var(--color-dark-cocoa);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-barn-red);
+}
+
+.card__badge {
+  display: inline-block;
+  justify-self: start;
+
+  background-color: var(--color-cornflower-blue);
+  color: var(--color-dark-cocoa);
+
+  font-family: var(--font-ui);
+  font-size: 12px;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  padding: 6px 16px;
+
+  border-radius: var(--radius-badge);
+
+  margin-bottom: var(--spacing-24);
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+
+  font-size: 26px;
+  line-height: 1.05;
+
+  color: var(--color-dark-cocoa);
+
+  margin-bottom: var(--spacing-16);
+}
+
+.card__text {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+
+  color: var(--color-dark-cocoa);
+}
+
+
+/* ==========================================================================
+   13. FOOTER
+   ========================================================================== */
+
+/*
+   GRID CONTAINER: footer-grid
+
+   Tres columnas:
+
+   ┌────────────────┬──────────────┬──────────────┐
+   │ información    │ navegación   │ contacto     │
+   │ GRID ITEM      │ GRID ITEM    │ GRID ITEM    │
+   └────────────────┴──────────────┴──────────────┘
+
+   El copyright utiliza:
+   grid-column: 1 / -1
+
+   Por lo tanto ocupa las tres columnas.
+*/
+
+.footer-grid {
+  display: grid;
+
+  grid-template-columns:
+    1.5fr 1fr 1fr;
+
+  gap: var(--spacing-48);
+
+  padding-top: var(--spacing-48);
+  padding-bottom: var(--spacing-24);
+}
+
+
+/* GRID ITEM: marca */
+
+.footer-brand {
+  grid-column: 1;
+}
+
+.site-footer {
+  background-color: var(--color-dark-cocoa);
+  color: var(--color-cream-parchment);
+}
+
+.site-footer__brand {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+
+  color: var(--color-honeycomb-gold);
+
+  margin-bottom: var(--spacing-16);
+}
+
+.footer-address {
+  max-width: 320px;
+
+  color: var(--color-cream-parchment);
+}
+
+
+/* GRID ITEMS: columnas */
+
+.site-footer__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.site-footer__col h4 {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  color: var(--color-honeycomb-gold);
+
+  margin-bottom: var(--spacing-16);
+}
+
+.site-footer__col a,
+.site-footer__col p {
+  font-family: var(--font-ui);
+  font-size: 14px;
+
+  color: var(--color-cream-parchment);
+
+  margin-bottom: 9px;
+
+  transition: color var(--transition-fast);
+}
+
+.site-footer__col a:hover {
+  color: var(--color-honeycomb-gold);
+}
+
+
+/* GRID ITEM:
+   copyright ocupa las tres columnas */
+
+.site-footer__bottom {
+  grid-column: 1 / -1;
+
+  border-top: 1px solid rgba(242, 235, 208, 0.25);
+
+  padding-top: var(--spacing-16);
+
+  text-align: center;
+
+  font-family: var(--font-ui);
+  font-size: 12px;
+
+  color: rgba(242, 235, 208, 0.7);
+}
+
+
+/* Franja dorada final */
+
+.gold-strip {
+  height: 8px;
+  background-color: var(--color-honeycomb-gold);
+}
+
+
+/* ==========================================================================
+   14. ANIMACIONES
+   ========================================================================== */
+
+@keyframes fade-in-up {
+
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+.fade-in {
+  animation: fade-in-up 0.9s ease-out both;
+}
+
+.fade-in--delay-1 {
+  animation-delay: 0.15s;
+}
+
+.fade-in--delay-2 {
+  animation-delay: 0.3s;
+}
+
+.fade-in--delay-3 {
+  animation-delay: 0.45s;
+}
+
+
+/* ==========================================================================
+   15. RESPONSIVE — TABLET
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+  /* ---------------------------------------------------------------
+     GRID: ABOUT
+     Las dos columnas pasan a una sola.
+     --------------------------------------------------------------- */
+
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: var(--spacing-48);
+  }
+
+  .about-copy {
+    grid-column: 1;
+  }
+
+  .about-image {
+    grid-column: 1;
+  }
+
+
+  /* ---------------------------------------------------------------
+     GRID: TARJETAS
+     Tres columnas → una columna
+     --------------------------------------------------------------- */
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* ---------------------------------------------------------------
+     GRID: EVENTO
+     Dos columnas → una columna
+     --------------------------------------------------------------- */
+
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-label,
+  .event-title,
+  .event-text,
+  .event-button {
+    grid-column: 1;
+  }
+
+  .event-text {
+    justify-self: center;
+    text-align: center;
+    max-width: 650px;
+  }
+
+  .event-button {
+    justify-self: center;
+  }
+
+
+  /* ---------------------------------------------------------------
+     GRID: FOOTER
+     Tres columnas → una columna
+     --------------------------------------------------------------- */
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand,
+  .site-footer__col,
+  .site-footer__bottom {
+    grid-column: 1;
+  }
+
+
+  /* ---------------------------------------------------------------
+     MENÚ MÓVIL
+     --------------------------------------------------------------- */
+
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__links {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    display: none;
+
+    flex-direction: column;
+    align-items: center;
+
+    gap: var(--spacing-24);
+
+    padding: var(--spacing-24) 0;
+
+    background-color: var(--color-dark-cocoa);
+  }
+
+  .navbar__links.is-open {
+    display: flex;
+  }
+
+}
+
+
+/* ==========================================================================
+   16. RESPONSIVE — TELÉFONOS
+   ========================================================================== */
+
+@media (max-width: 600px) {
+
+  /* Contenedor */
+  .content-wrap {
+    width: min(100% - 32px, 1100px);
+  }
+
+  .navbar__inner {
+    width: calc(100% - 32px);
+  }
+
+
+  /* HERO */
+
+  .main-grid {
+    grid-template-rows:
+      70vh
+      auto
+      auto
+      auto;
+  }
+
+  .hero {
+    min-height: 70vh;
+  }
+
+  .hero__content {
+    width: calc(100% - 32px);
+  }
+
+  .hero__title {
+    font-size: clamp(48px, 15vw, 80px);
+  }
+
+  .hero__subtitle {
+    font-size: 17px;
+  }
+
+
+  /* BOTONES */
+
+  .btn-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: min(100%, 280px);
+  }
+
+
+  /* SECCIONES */
+
+  .section {
+    padding: var(--spacing-48) 0;
+  }
+
+
+  /* QUIÉNES SOMOS */
+
+  .about-image img {
+    height: 300px;
+  }
+
+  .about-image::before {
+    top: 8px;
+    left: 8px;
+  }
+
+
+  /* FOOTER */
+
+  .footer-grid {
+    gap: var(--spacing-32);
+  }
+
+}

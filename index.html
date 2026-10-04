@@ -1,25 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guias de Desarrollo Web</title>
+    <title>Guías de Desarrollo Web I</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Great+Vibes&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos_principal.css">
 </head>
 <body>
     <header class="banner">
         <h1>Desarrollo Web I</h1>
-        <p class="subtitulo">Nayeli Aimy Santacruz Ayala - 20255783</p>
+        <p class="subtitulo">Nayeli Santacruz - 20255783</p>
     </header>
 
     <main class="contenido">
-        <section>
-            <h2>Listado de Guías</h2>
-            <ul>
-                <li><a href="Guia1/index.html">Guía 1: Introducción y conceptos básicos de HTML y CSS</a></li>
-                <li><a href="20255783_Guia2/index.html">Guía 2: Selectores CSS avanzados y modelo de caja</a></li>
-            </ul>
-        </section>
+        <h2 class="oculto">Listado de guías</h2>
+
+        <ul class="carpetas">
+            <!-- Guías disponibles -->
+            <li>
+                <a class="carpeta" href="Guia1/index.html">
+                    <img src="img/rosada.png" alt="">
+                    <span>Guía 1</span>
+                </a>
+            </li>
+            <li>
+                <a class="carpeta" href="20255783_Guia2/index.html">
+                    <img src="img/rojo.png" alt="">
+                    <span>Guía 2</span>
+                </a>
+            </li>
+            <li>
+                <a class="carpeta" href="20255783_Guia3/index.html">
+                    <img src="img/celeste.png" alt="">
+                    <span>Guía 3</span>
+                </a>
+            </li>
+
+            <!-- Guías bloqueadas (todavía no disponibles) -->
+            <li>
+                <div class="carpeta bloqueada">
+                    <img src="img/gris.png" alt="Guía 4 (próximamente)">
+                </div>
+            </li>
+            <li>
+                <div class="carpeta bloqueada">
+                    <img src="img/gris.png" alt="Guía 5 (próximamente)">
+                </div>
+            </li>
+            <li>
+                <div class="carpeta bloqueada">
+                    <img src="img/gris.png" alt="Guía 6 (próximamente)">
+                </div>
+            </li>
+            <li>
+                <div class="carpeta bloqueada">
+                    <img src="img/gris.png" alt="Guía 7 (próximamente)">
+                </div>
+            </li>
+            <li>
+                <div class="carpeta bloqueada">
+                    <img src="img/gris.png" alt="Guía 8 (próximamente)">
+                </div>
+            </li>
+        </ul>
     </main>
 
     <footer class="pie">

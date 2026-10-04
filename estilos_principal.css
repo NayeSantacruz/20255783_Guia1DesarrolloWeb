@@ -1,16 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Valley+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
 :root {
-    --fawn: #E7AE75;
-    --wheat: #F6DFB3;
-    --misty-rose: #FAD6D3;
-    --salmon-pink: #F28AA1;
-    --bole: #83513E;
-    --granate: #6C0202;
-    --morado: #79597E;
-    --pomelo: #C45A30;
-    --naranja: #DB8925;
-    --mandarina: #E9BF8D;
+    --rojo: #9c1f17;
+    --celeste-raya: #bad8ef;
+    --blanco: #ffffff;
+    --texto: #1f1f1f;
+    --nombre: #3a3a3a;
+
+    /* Difuminado blanco del centro hacia los bordes, para que
+       el texto se lea mejor sobre las rayas */
+    --difuminado: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.7) 35%,
+        rgba(255, 255, 255, 0) 75%
+    );
 }
 
 * {
@@ -19,80 +21,146 @@
     box-sizing: border-box;
 }
 
+/* Pantalla completa: el footer queda siempre al fondo */
 body {
     font-family: Arial, sans-serif;
-    background-color: #fffaf6;
+    background-color: var(--blanco);
+    color: var(--texto);
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-.contenido {
-    flex: 1;
+/* ------ ENCABEZADO ------ */
+.banner {
+    background-image: var(--difuminado), url("img/fondo.png");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 64px 20px 56px;
 }
 
-/* encabezado */
-.banner {
-    background-color: var(--granate);
-    color: var(--misty-rose);
+.banner h1 {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-weight: 400;
+    font-size: clamp(2.6rem, 9vw, 5rem);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--rojo);
+}
+
+.subtitulo {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: var(--nombre);
+    margin-top: 8px;
+}
+
+/* ------ CARPETAS ------ */
+.contenido {
+    flex: 1;
+    padding: 56px 32px 64px;
+}
+
+/* Título solo para lectores de pantalla (no se ve) */
+.oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.carpetas {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 32px;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.carpeta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--texto);
+}
+
+.carpeta img {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    transition: transform 0.25s ease;
+}
+
+/* position y z-index mantienen el texto por encima de la imagen,
+   aunque la imagen se mueva al pasar el puntero */
+.carpeta span {
+    position: relative;
+    z-index: 1;
+    font-family: "Space Mono", "Courier New", monospace;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: -8px;
+}
+
+/* Efecto al pasar el puntero o navegar con teclado */
+a.carpeta:hover img,
+a.carpeta:focus-visible img {
+    transform: translateY(-6px) scale(1.04);
+}
+
+a.carpeta:hover span,
+a.carpeta:focus-visible span {
+    color: var(--rojo);
+}
+
+a.carpeta:focus-visible {
+    outline: 3px solid var(--celeste-raya);
+    outline-offset: 6px;
+    border-radius: 12px;
+}
+
+.bloqueada {
+    cursor: not-allowed;
+}
+
+/* ------ PIE DE PÁGINA ------ */
+.pie {
+    background-image: url("img/fondo.png");
+    background-size: cover;
+    background-position: center;
     text-align: center;
     padding: 40px 20px;
 }
 
-.banner h1, h2 {
-    font-size: 2.2em;
-    margin-bottom: 8px;
-    font-family: "Merriweather", serif;
-}
-
-.subtitulo {
-    font-size: 1em;
-    color: var(--misty-rose);
-    font-family: "Merriweather", serif;
-}
-
-/* contenido */
-.contenido {
-    max-width: 900px;
+.pie p {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--rojo);
+    max-width: 440px;
     margin: 0 auto;
-    padding: 30px 20px;
 }
 
-section {
-    margin-bottom: 40px;
-}
+/* ------ RESPONSIVE ------ */
+@media (max-width: 480px) {
+    .contenido {
+        padding: 40px 16px 48px;
+    }
 
-h2 {
-    color: var(--naranja);
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-    font-size: 1.5em;
-}
+    .carpetas {
+        gap: 24px 12px;
+    }
 
-ul {
-    list-style: disc;
-    margin-left: 20px;
-}
-
-li {
-    margin-bottom: 8px;
-}
-
-a {
-    color: #4d3126;
-    text-decoration: underline;
-}
-
-a:hover {
-    color: var(--bole);
-}
-
-/* pie de pagina */
-.pie {
-    background-color: var(--mandarina);
-    color: var(--granate);
-    text-align: center;
-    padding: 15px;
-    font-size: 0.9em;
+    .carpeta span {
+        font-size: 0.8rem;
+    }
 }

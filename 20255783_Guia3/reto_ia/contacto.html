@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es-SV">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Fonda de Alegría | Eventos y Reservaciones</title>
+  <meta name="description" content="Reserva tu evento en La Fonda de Alegría: banquetes, reuniones familiares y celebraciones en Alegría, Usulután, El Salvador.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Serif+Display&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ NAVEGACIÓN ============ -->
+  <header>
+    <nav class="navbar">
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo">Fonda <span>de Alegría</span></a>
+        <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="navbar__links" id="navLinks">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="Nosotros.html">Quiénes Somos</a></li>
+          <li><a href="contacto.html" class="is-active">Eventos y Reservaciones</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO SECUNDARIO ============ -->
+    <section class="hero hero--sm" style="background-image:url('https://image.jimcdn.com/app/cms/image/transf/dimension=1920x10000:format=jpg/path/scaccd98ad13be2f5/image/ifd1d780230cffd39/version/1676106801/image.jpg');">
+      <div class="hero__content fade-in">
+        <p class="hero__eyebrow">Celebra con nosotros</p>
+        <h1 class="hero__title display">Eventos &amp; Reservaciones</h1>
+      </div>
+    </section>
+
+    <!-- ============ INFORMACIÓN DE EVENTOS ============ -->
+    <section class="section section--cocoa">
+      <div class="content-wrap" style="text-align:center;">
+        <p class="subhead fade-in">Tu celebración, nuestro escenario</p>
+        <p class="fade-in fade-in--delay-1" style="max-width: 700px; margin: var(--spacing-24) auto 0; color: var(--color-cream-parchment);">
+          Contamos con espacios amplios rodeados de naturaleza, ideales para
+          banquetes, reuniones familiares, cumpleaños, aniversarios y celebraciones
+          corporativas. Cuéntanos los detalles de tu evento y coordinaremos cada
+          detalle para que solo tengas que disfrutar.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__item">Banquetes</span>
+        <span class="marquee__bee">🐝</span>
+        <span class="marquee__item">Reuniones Familiares</span>
+        <span class="marquee__bee">🐝</span>
+        <span class="marquee__item">Celebraciones Especiales</span>
+        <span class="marquee__bee">🐝</span>
+        <span class="marquee__item">Banquetes</span>
+        <span class="marquee__bee">🐝</span>
+        <span class="marquee__item">Reuniones Familiares</span>
+        <span class="marquee__bee">🐝</span>
+        <span class="marquee__item">Celebraciones Especiales</span>
+        <span class="marquee__bee">🐝</span>
+      </div>
+    </div>
+
+    <!-- ============ FORMULARIO + INFO DE CONTACTO ============ -->
+    <section class="section section--cream">
+      <div class="content-wrap two-col" style="align-items:flex-start;">
+
+        <!-- FORMULARIO -->
+        <div class="form-card fade-in">
+          <p class="subhead subhead--on-light" style="margin-bottom: var(--spacing-24);">Formulario de reserva</p>
+          <form action="#" method="post">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+              </div>
+              <div class="form-group">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="+(503) 0000-0000" required>
+              </div>
+              <div class="form-group">
+                <label for="tipo-evento">Tipo de evento</label>
+                <select id="tipo-evento" name="tipo-evento" required>
+                  <option value="">Selecciona una opción</option>
+                  <option value="banquete">Banquete</option>
+                  <option value="reunion-familiar">Reunión familiar</option>
+                  <option value="cumpleanos">Cumpleaños</option>
+                  <option value="aniversario">Aniversario</option>
+                  <option value="corporativo">Evento corporativo</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+              <div class="form-group form-group--full">
+                <label for="fecha">Fecha del evento</label>
+                <input type="date" id="fecha" name="fecha" required>
+              </div>
+              <div class="form-group form-group--full">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos más sobre tu evento: número de invitados, horario preferido, requerimientos especiales..."></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn--dark" style="width: 100%; justify-content: center;">Enviar solicitud de reserva →</button>
+          </form>
+        </div>
+
+        <!-- INFO DE CONTACTO -->
+        <div class="fade-in fade-in--delay-1">
+          <p class="subhead subhead--on-light" style="margin-bottom: var(--spacing-24);">Ubicación y contacto</p>
+          <div class="info-list">
+            <div class="info-item">
+              <span class="info-item__icon">📍</span>
+              <div>
+                <p class="info-item__label">Dirección</p>
+                <p>Final Calle Gólgota, El Calvario, Alegría, Usulután, El Salvador, C.A.</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icon">📞</span>
+              <div>
+                <p class="info-item__label">Teléfono</p>
+                <p>+(503) 2628-1198</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icon">🕒</span>
+              <div>
+                <p class="info-item__label">Horario de atención</p>
+                <p>Martes a domingo, 10:00 a.m. – 8:00 p.m.</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icon">🌐</span>
+              <div>
+                <p class="info-item__label">Redes sociales</p>
+                <p>
+                  <a href="https://www.facebook.com/lafondadealegriausulutan" target="_blank" rel="noopener" style="text-decoration:underline;">Facebook</a> ·
+                  <a href="https://instagram.com/fondadealegria" target="_blank" rel="noopener" style="text-decoration:underline;">Instagram</a> ·
+                  <a href="http://www.tiktok.com/@fondadealegria" target="_blank" rel="noopener" style="text-decoration:underline;">TikTok</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-frame" style="margin-top: var(--spacing-32);">
+            <iframe
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBs_lAfpuIjfx7DGisR7oUh1ZZ_C5qtGKc&q=La+Fonda+de+Alegria&maptype=roadmap"
+              allowfullscreen loading="lazy" title="Mapa de ubicación de La Fonda de Alegría">
+            </iframe>
+          </div>
+
+          <div class="btn-row" style="margin-top: var(--spacing-24); justify-content:flex-start;">
+            <a href="https://waze.com/ul/hd43hf7mhz" target="_blank" rel="noopener" class="btn btn--gold">Cómo llegar (Waze) →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="content-wrap">
+      <div class="site-footer__top">
+        <div>
+          <p class="site-footer__brand">La Fonda de Alegría</p>
+          <p style="max-width: 320px;">Final Calle Gólgota, El Calvario, Alegría, Usulután, El Salvador, C.A.</p>
+        </div>
+        <div class="site-footer__col">
+          <h4>Navegación</h4>
+          <a href="index.html">Inicio</a>
+          <a href="Nosotros.html">Quiénes Somos</a>
+          <a href="contacto.html">Eventos y Reservaciones</a>
+        </div>
+        <div class="site-footer__col">
+          <h4>Contacto</h4>
+          <p>📞 +(503) 2628-1198</p>
+          <a href="https://www.facebook.com/lafondadealegriausulutan" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://instagram.com/fondadealegria" target="_blank" rel="noopener">Instagram</a>
+          <a href="http://www.tiktok.com/@fondadealegria" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; 2026 La Fonda de Alegría — Proyecto académico, Desarrollo Web I.</p>
+      </div>
+    </div>
+  </footer>
+  <div class="gold-strip"></div>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('is-open'));
+  </script>
+</body>
+</html>
