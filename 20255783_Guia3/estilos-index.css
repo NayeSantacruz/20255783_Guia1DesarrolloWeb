@@ -1,6 +1,4 @@
-/* ==========================================================
-   Guía 3: colores celeste y fondo de cuadros
-   ========================================================== */
+
 :root {
     --acento: #3f7896;
     --acento-claro: #c7e0ee;
@@ -11,7 +9,7 @@
     --texto: #2b2b2b;
     --texto-suave: #5c5c5c;
 
-    /* Difuminado blanco sobre las rayas, igual que el portafolio */
+    
     --difuminado: radial-gradient(
         ellipse at center,
         rgba(255, 255, 255, 0.9) 0%,

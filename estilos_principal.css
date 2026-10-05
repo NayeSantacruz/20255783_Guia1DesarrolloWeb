@@ -5,8 +5,6 @@
     --texto: #1f1f1f;
     --nombre: #3a3a3a;
 
-    /* Difuminado blanco del centro hacia los bordes, para que
-       el texto se lea mejor sobre las rayas */
     --difuminado: radial-gradient(
         ellipse at center,
         rgba(255, 255, 255, 0.9) 0%,
@@ -21,7 +19,7 @@
     box-sizing: border-box;
 }
 
-/* Pantalla completa: el footer queda siempre al fondo */
+
 body {
     font-family: Arial, sans-serif;
     background-color: var(--blanco);
@@ -63,7 +61,7 @@ body {
     padding: 56px 32px 64px;
 }
 
-/* Título solo para lectores de pantalla (no se ve) */
+
 .oculto {
     position: absolute;
     width: 1px;
