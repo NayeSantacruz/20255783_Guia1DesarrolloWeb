@@ -76,9 +76,9 @@ body {
 .carpetas {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px 32px;
-    max-width: 640px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -97,8 +97,7 @@ body {
     transition: transform 0.25s ease;
 }
 
-/* position y z-index mantienen el texto por encima de la imagen,
-   aunque la imagen se mueva al pasar el puntero */
+
 .carpeta span {
     position: relative;
     z-index: 1;
@@ -110,7 +109,7 @@ body {
     margin-top: -8px;
 }
 
-/* Efecto al pasar el puntero o navegar con teclado */
+
 a.carpeta:hover img,
 a.carpeta:focus-visible img {
     transform: translateY(-6px) scale(1.04);
@@ -162,5 +161,11 @@ a.carpeta:focus-visible {
 
     .carpeta span {
         font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 760px) {
+    .carpetas {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
