@@ -295,3 +295,6 @@ idModal.addEventListener("shown.bs.modal", () => {
 //Ejecutar funcion al momento de cargar la pagina HTML
 cargarPacientes();
 limpiarForm();
+if (arrayPaciente.length > 0) {
+    imprimirPacientes();
+}
