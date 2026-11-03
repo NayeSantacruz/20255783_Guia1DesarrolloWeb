@@ -1,0 +1,257 @@
+
+:root {
+    --acento: #7e5bb0;
+    --acento-claro: #d9ccee;
+    --acento-fondo: #f5f0fc;
+
+    --blanco: #ffffff;
+    --texto: #2b2b2b;
+    --texto-suave: #5c5c5c;
+
+    
+    --difuminado: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.7) 35%,
+        rgba(255, 255, 255, 0) 75%
+    );
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--texto);
+    background-color: var(--blanco);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ------ ENCABEZADO ------ */
+.banner {
+    position: relative;
+    background-image: var(--difuminado), url("../img/fondoMorado.png");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 72px 20px 56px;
+}
+
+.volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--texto);
+    background-color: var(--blanco);
+    padding: 6px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: color 0.2s ease;
+}
+
+.volver:hover,
+.volver:focus-visible {
+    color: var(--acento);
+}
+
+.numero-guia {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--acento);
+}
+
+.banner h1 {
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+    font-weight: 700;
+    color: var(--texto);
+    max-width: 620px;
+    margin: 12px auto 0;
+}
+
+/* ------ CONTENIDO ------ */
+.contenido {
+    flex: 1;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+}
+
+.bloque {
+    margin-bottom: 56px;
+}
+
+.bloque h2 {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: var(--acento);
+    border-bottom: 3px solid var(--acento-claro);
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+}
+
+/* ------ TARJETAS ------ */
+.tarjetas {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: 100%;
+    padding: 20px;
+    background-color: var(--acento-fondo);
+    border: 2px solid var(--acento-claro);
+    border-left: 6px solid var(--acento);
+    border-radius: 12px;
+    color: var(--texto);
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta:hover,
+.tarjeta:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.etiqueta {
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--acento);
+}
+
+.tarjeta-titulo {
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+/* ------ TABLA ------ */
+.tabla-contenedor {
+    overflow-x: auto;
+    border: 2px solid var(--acento-claro);
+    border-radius: 12px;
+}
+
+table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    font-size: 0.92rem;
+    border-bottom: 1px solid var(--acento-claro);
+}
+
+th {
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    background-color: var(--acento-claro);
+    color: var(--texto);
+}
+
+td:first-child {
+    width: 45%;
+    color: var(--texto-suave);
+    border-right: 1px solid var(--acento-claro);
+}
+
+tbody tr:nth-child(even) td {
+    background-color: var(--acento-fondo);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ------ VIDEO ------ */
+.video-contenedor {
+    width: 100%;
+    max-width: 760px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 4px solid var(--acento-claro);
+}
+
+.video-contenedor iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ------ PIE DE PÁGINA ------ */
+.pie {
+    background-image: var(--difuminado), url("../img/fondoMorado.png");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 32px 20px;
+}
+
+.pie p {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    text-transform: uppercase;
+    color: var(--acento);
+}
+
+/* ------ RESPONSIVE ------ */
+@media (max-width: 600px) {
+    .banner {
+        padding-top: 80px;
+    }
+
+    .volver {
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+
+    .contenido {
+        padding: 32px 16px 48px;
+    }
+}
+
+/* ------ VIDEO PENDIENTE ------ */
+.video-pendiente {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 20px;
+    text-align: center;
+    font-family: "Space Mono", "Courier New", monospace;
+    font-weight: 700;
+    color: var(--acento);
+    background-color: var(--acento-fondo);
+    border: 3px dashed var(--acento-claro);
+    border-radius: 12px;
+}
