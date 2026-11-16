@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link rel="icon" href="../img/js.png" sizes="32x32" type="image/png" />
+    <title>Catálogo de juegos MMO</title>
+
+</head>
+
+<body>
+
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="../index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img src="../img/js.png" class="bi me-2" width="48" height="48">
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="../pages/ejemplo1.html" class="nav-link px-2 text-white">Ejemplo 1</a></li>
+                    <li><a href="../pages/ejemplo2.html" class="nav-link px-2 text-white">Ejemplo 2</a></li>
+                    <li><a href="../pages/ejemplo3.html" class="nav-link px-2 text-white">Ejemplo 3</a></li>
+                    <li><a href="../pages/ejemplo4.html" class="nav-link px-2 text-white">Ejemplo 4</a></li>
+                    <li><a href="../pages/complementario2.html" class="nav-link px-2 text-warning fw-bold">
+                            <i class="bi bi-check"></i> Complementario 2
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="px-4 pt-5 mt-4 text-center">
+            <h1 class="display-5 fw-bold">Catálogo de juegos MMO</h1>
+            <p class="lead mb-4">
+                Listado de juegos multijugador gratuitos consumido desde la API
+                <span class="fw-bold">MMO Games</span> de RapidAPI por medio de Fetch API.
+                Seleccione un juego para consultar sus detalles.
+            </p>
+        </div>
+
+        <!-- FILTROS DEL LISTADO -->
+        <form class="row g-3 mb-4" id="idFormFiltros">
+            <div class="col-md-7">
+                <label for="idTxtBuscar" class="form-label fw-bold">
+                    <i class="bi bi-search"></i> Buscar por título
+                </label>
+                <input type="text" class="form-control" id="idTxtBuscar" placeholder="Nombre del juego">
+            </div>
+            <div class="col-md-5">
+                <label for="idCmbPlataforma" class="form-label fw-bold">
+                    <i class="bi bi-display"></i> Plataforma
+                </label>
+                <select class="form-select" id="idCmbPlataforma">
+                    <option value="" selected>Todas las plataformas</option>
+                    <option value="Windows">PC (Windows)</option>
+                    <option value="Web Browser">Navegador web</option>
+                </select>
+            </div>
+        </form>
+
+        <!-- MENSAJES DE CARGA Y DE ERROR DEL LISTADO -->
+        <div id="idMensaje" class="mb-4"></div>
+
+        <!-- TOTAL DE JUEGOS MOSTRADOS -->
+        <p id="idContador" class="text-muted"></p>
+
+        <!-- LISTADO DE RECURSOS (se llena por medio de JavaScript) -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="idListado"></div>
+
+        <div class="text-center my-5">
+            <button type="button" id="idBtnMas" class="btn btn-primary btn-lg d-none">
+                <i class="bi bi-plus-circle"></i> Mostrar más juegos
+            </button>
+        </div>
+    </div>
+
+    <footer class="text-center text-muted py-4 border-top">
+        Datos proporcionados por
+        <a href="https://www.mmobomb.com" target="_blank" rel="noopener">MMOBomb.com</a>
+        a través de RapidAPI
+    </footer>
+
+    <!-- COMPONENTE MODAL DE BOOTSTRAP PARA EL DETALLE DEL JUEGO -->
+    <div class="modal fade" id="idModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalLabel">Detalle del juego</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="idBodyModal">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle"></i> Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/complementario2.js" defer></script>
+
+</body>
+
+</html>
